@@ -1,0 +1,14 @@
+/* Global styles */
+@import url('/legacy/css/bootstrap.min.css');
+@import url('/legacy/css/animate.css');
+@import url('/legacy/css/aos.css');
+@import url('/legacy/css/ionicons.min.css');
+@import url('/legacy/css/flaticon.css');
+@import url('/legacy/css/icomoon.css');
+@import url('/legacy/css/style.css');
+/* DeepVision modern enhancements – loaded last to override legacy styles */
+@import url('/legacy/css/deepvision-enhancements.css');
+
+/* Only constrain the Next.js wrapper height, never touch overflow on html/body here */
+html, body { margin: 0; padding: 0; }
+#__next { min-height: 100%; }

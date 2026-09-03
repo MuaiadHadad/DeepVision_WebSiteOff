@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>BioVision Brochure – DeepVision</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/images/deep-vision-logo.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="stylesheet" href="/legacy/css/animate.css"/>
+    <link rel="stylesheet" href="/legacy/css/aos.css"/>
+    <link rel="stylesheet" href="/legacy/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/legacy/css/open-iconic-bootstrap.min.css"/>
+    <link rel="stylesheet" href="/legacy/css/owl.carousel.min.css"/>
+    <link rel="stylesheet" href="/legacy/css/owl.theme.default.min.css"/>
+    <link rel="stylesheet" href="/legacy/css/icomoon.css"/>
+    <link rel="stylesheet" href="/legacy/css/ionicons.min.css"/>
+    <link rel="stylesheet" href="/legacy/css/flaticon.css"/>
+    <link rel="stylesheet" href="/legacy/css/magnific-popup.css"/>
+    <link rel="stylesheet" href="/legacy/css/style.css"/>
+    <link rel="stylesheet" href="/legacy/css/deepvision-enhancements.css"/>
+    <link rel="stylesheet" href="/legacy/css/deepvision-animations.css"/>
+    <style>
+      body { padding-top: 80px; background: #f8fafc; }
+
+      /* ── Hero ── */
+      .biovision-hero {
+        background: linear-gradient(135deg, #2e7a9a 0%, #419bbd 50%, #5ab3d4 100%);
+        padding: 70px 0 80px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .biovision-hero::before {
+        content: '';
+        position: absolute;
+        top: -60px; right: -60px;
+        width: 300px; height: 300px;
+        border-radius: 50%;
+        background: rgba(255,255,255,.06);
+        pointer-events: none;
+      }
+      .biovision-hero::after {
+        content: '';
+        position: absolute;
+        bottom: -80px; left: -40px;
+        width: 260px; height: 260px;
+        border-radius: 50%;
+        background: rgba(255,255,255,.04);
+        pointer-events: none;
+      }
+      .biovision-hero h1 {
+        color: #fff;
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 800;
+        letter-spacing: 1px;
+        margin-bottom: 12px;
+        text-shadow: 0 2px 20px rgba(0,0,0,.2);
+      }
+      .biovision-hero p {
+        color: rgba(255,255,255,0.85);
+        font-size: 1.1rem;
+        margin-bottom: 28px;
+      }
+      .biovision-hero .hero-badge {
+        display: inline-block;
+        background: rgba(255,255,255,.15);
+        border: 1px solid rgba(255,255,255,.35);
+        color: #fff;
+        padding: 6px 18px;
+        border-radius: 50px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        backdrop-filter: blur(6px);
+      }
+      .biovision-hero .btn-download {
+        display: inline-block;
+        padding: 12px 32px;
+        background: #fff;
+        color: #419bbd;
+        font-weight: 700;
+        border-radius: 50px;
+        text-decoration: none;
+        transition: all .3s cubic-bezier(.4,0,.2,1);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      }
+      .biovision-hero .btn-download:hover {
+        background: #1a2332;
+        color: #fff;
+        box-shadow: 0 6px 28px rgba(26,35,50,0.35);
+      }
+      .biovision-hero .btn-download i { margin-right: 8px; }
+
+      /* ── Content Section ── */
+      .biovision-content { padding: 60px 0 80px; }
+
+      /* ── Image Card ── */
+      .brochure-card {
+        background: #fff;
+        border-radius: 20px;
+        padding: 24px;
+        box-shadow: 0 8px 32px rgba(65,155,189,0.18);
+        transition: transform .3s cubic-bezier(.4,0,.2,1), box-shadow .3s;
+      }
+      .brochure-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 60px rgba(65,155,189,0.22);
+      }
+      .brochure-card img { width: 100%; height: auto; border-radius: 12px; display: block; }
+
+      /* ── Badge ── */
+      .section-badge {
+        display: inline-block;
+        background: rgba(65,155,189,0.10);
+        color: #419bbd;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: .18em;
+        text-transform: uppercase;
+        padding: 6px 18px;
+        border-radius: 50px;
+        margin-bottom: 10px;
+        border: 1px solid rgba(65,155,189,0.3);
+      }
+
+      /* ── Info Sections ── */
+      .info-section { padding: 80px 0; }
+      .info-section .section-title {
+        font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+        font-weight: 800;
+        color: #1a2332;
+        margin-bottom: 8px;
+      }
+      .info-section .section-subtitle {
+        color: #419bbd;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .18em;
+        margin-bottom: 10px;
+      }
+      .info-section p { color: #6c8096; font-size: 1rem; line-height: 1.85; }
+
+      .divider {
+        width: 50px; height: 4px;
+        background: linear-gradient(90deg, #419bbd, #1a2332);
+        border-radius: 4px;
+        margin: 0 auto 24px;
+      }
+      .divider.left { margin: 0 0 24px; }
+
+      /* ── Info Cards ── */
+      .info-card {
+        background: #f8fafc;
+        border-left: 4px solid #419bbd;
+        border-radius: 0 12px 12px 0;
+        padding: 20px 24px;
+        margin-bottom: 16px;
+        box-shadow: 0 2px 8px rgba(65,155,189,0.08);
+        transition: box-shadow .3s;
+      }
+      .info-card:hover { box-shadow: 0 8px 24px rgba(65,155,189,0.16); }
+      .info-card h5 {
+        color: #1a2332;
+        font-weight: 700;
+        font-size: 0.82rem;
+        margin-bottom: 4px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .info-card p, .info-card a { color: #6c8096; margin: 0; font-size: 0.97rem; }
+
+      /* ── Tags ── */
+      .tag-list { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+      .tag-list li {
+        background: rgba(65,155,189,0.08);
+        color: #419bbd;
+        font-size: 0.85rem;
+        font-weight: 600;
+        padding: 8px 20px;
+        border-radius: 50px;
+        border: 1px solid rgba(65,155,189,0.25);
+      }
+
+      /* ── People Grid ── */
+      .people-grid { display: flex; flex-wrap: wrap; gap: 12px; }
+      .person-tag {
+        background: #fff;
+        border: 1px solid #e8eef4;
+        border-radius: 50px;
+        padding: 8px 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #1a2332;
+        box-shadow: 0 2px 8px rgba(65,155,189,0.10);
+      }
+
+      /* ── Stats Bar ── */
+      .stats-bar {
+        background: linear-gradient(135deg, #2e7a9a 0%, #419bbd 50%, #5ab3d4 100%);
+        padding: 50px 0;
+        position: relative;
+        overflow: hidden;
+      }
+      .stats-bar::before {
+        content: '';
+        position: absolute;
+        top: -40px; right: -40px;
+        width: 200px; height: 200px;
+        border-radius: 50%;
+        background: rgba(255,255,255,.08);
+        pointer-events: none;
+      }
+      .stat-item { text-align: center; padding: 10px; }
+      .stat-item .stat-value {
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: #fff;
+        display: block;
+      }
+      .stat-item .stat-label {
+        font-size: 11px;
+        color: rgba(255,255,255,0.8);
+        text-transform: uppercase;
+        letter-spacing: .12em;
+        margin-top: 4px;
+      }
+
+      /* ── Institutions ── */
+      .institution-item {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        background: #fff;
+        border-radius: 12px;
+        padding: 16px 20px;
+        margin-bottom: 12px;
+        box-shadow: 0 2px 8px rgba(65,155,189,0.08);
+        border: 1px solid #e8eef4;
+        transition: box-shadow .3s, transform .3s;
+      }
+      .institution-item:hover {
+        box-shadow: 0 8px 24px rgba(65,155,189,0.14);
+        transform: translateX(4px);
+      }
+      .institution-item .inst-icon {
+        width: 42px; height: 42px;
+        background: rgba(65,155,189,0.10);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #419bbd;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+      .institution-item span { color: #1a2332; font-weight: 600; font-size: 0.95rem; }
+
+      /* ── Contact btn ── */
+      .btn-contact {
+        display: inline-block;
+        padding: 14px 36px;
+        background: linear-gradient(135deg, #2e7a9a, #419bbd);
+        color: #fff !important;
+        font-weight: 700;
+        border-radius: 50px;
+        text-decoration: none;
+        transition: all .3s cubic-bezier(.4,0,.2,1);
+        box-shadow: 0 4px 20px rgba(65,155,189,0.3);
+        margin-top: 16px;
+      }
+      .btn-contact:hover {
+        background: linear-gradient(135deg, #1a2332, #2e7a9a);
+        box-shadow: 0 8px 28px rgba(26,35,50,0.3);
+        transform: translateY(-2px);
+      }
+    </style>
+  </head>
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="1000">
+
+    <!-- NAV -->
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+      <div class="container">
+        <a class="navbar-brand" href="/">
+          <img src="/images/deep-vision-logo.png" alt="Deep Vision Medical AI" style="height:100px; width:auto; vertical-align:middle; margin-right:8px;"/>
+        </a>
+        <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="oi oi-menu"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="ftco-nav">
+          <ul class="navbar-nav nav ml-auto">
+            <li class="nav-item"><a href="/#home-section" class="nav-link"><span>Home</span></a></li>
+            <li class="nav-item"><a href="/#about-section" class="nav-link"><span>About</span></a></li>
+            <li class="nav-item"><a href="/#technology-section" class="nav-link"><span>Technology</span></a></li>
+            <li class="nav-item active"><a href="/biovision" class="nav-link"><span>Project</span></a></li>
+            <li class="nav-item"><a href="/#contact-section" class="nav-link"><span>Contact</span></a></li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="biovision-hero">
+      <div class="container">
+        <span class="hero-badge">BioVision™ by DeepVision</span>
+        <h1>Sistema Inteligente para<br>Avaliação de Feridas Crónicas</h1>
+        <p>Hyperspectral imaging and AI for evidence‑based chronic wound care.</p>
+        <a href="/pdf/biovision.pdf" download class="btn-download">
+          <i class="fa fa-download"></i> Download PDF
+        </a>
+      </div>
+    </div>
+
+
+    <!-- ── STATS BAR ── -->
+    <div class="stats-bar">
+      <div class="container">
+        <div class="row">
+          <div class="col-6 col-md-3">
+            <div class="stat-item">
+              <span class="stat-value">1.6M€</span>
+              <span class="stat-label">Total Budget</span>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="stat-item">
+              <span class="stat-value">83%</span>
+              <span class="stat-label">EU Co-financing</span>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="stat-item">
+              <span class="stat-value">3</span>
+              <span class="stat-label">Partner Institutions</span>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="stat-item">
+              <span class="stat-value">36</span>
+              <span class="stat-label">Months of Execution</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PRESENTATION ── -->
+    <div class="info-section" style="background:#f8fafc;">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 mb-4 mb-md-0">
+            <p class="section-subtitle">Apresentação</p>
+            <h2 class="section-title">Objetivo Temático</h2>
+            <div class="divider left"></div>
+            <p>Desenvolvimento de um dispositivo médico portátil baseado em imagem hiperespetral e inteligência artificial para avaliação objetiva, rápida e não invasiva de feridas crónicas. A solução pretende apoiar os profissionais de saúde na tomada de decisões clínicas, permitindo uma monitorização mais precisa da evolução das feridas e contribuindo para tratamentos mais eficazes.</p>
+          </div>
+          <div class="col-md-6">
+            <p class="section-subtitle mb-3">Área Científica</p>
+            <ul class="tag-list">
+              <li>Engenharia Biomédica</li>
+              <li>Engenharia Informática</li>
+              <li>Ótica e Instrumentação Biomédica</li>
+              <li>Inteligência Artificial</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PROJECT SUMMARY ── -->
+    <div class="info-section" style="background:#fff;">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-10 text-center mb-5">
+            <p class="section-subtitle">Síntese</p>
+            <h2 class="section-title">Síntese do Projeto</h2>
+            <div class="divider"></div>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-10">
+            <p style="font-size:1.05rem; line-height:2; color:#444; text-align:justify;">
+              O projeto BioVision tem como objetivo desenvolver uma solução tecnológica inovadora para melhorar a avaliação e monitorização de feridas crónicas. Através da criação de um dispositivo médico portátil equipado com tecnologia de imagem hiperespectral e algoritmos de inteligência artificial, o sistema permitirá analisar parâmetros críticos do tecido, como oxigenação, hidratação, hemoglobina e presença de biofilmes bacterianos.
+            </p>
+            <p style="font-size:1.05rem; line-height:2; color:#444; text-align:justify;">
+              A solução proporcionará uma avaliação clínica mais objetiva e em tempo real, permitindo identificar áreas críticas da ferida e apoiar intervenções terapêuticas mais precisas, incluindo a identificação de zonas que necessitam de desbridamento.
+            </p>
+            <p style="font-size:1.05rem; line-height:2; color:#444; text-align:justify;">
+              Com esta abordagem, o BioVision pretende reduzir complicações associadas a feridas crónicas, diminuir custos para os sistemas de saúde e melhorar a qualidade de vida dos pacientes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── RESEARCHERS & INSTITUTIONS ── -->
+    <div class="info-section" style="background:#f8fafc;">
+      <div class="container">
+        <div class="row">
+          <!-- Researchers -->
+          <div class="col-md-6 mb-5 mb-md-0">
+            <p class="section-subtitle">Equipa</p>
+            <h2 class="section-title">Investigadores Responsáveis</h2>
+            <div class="divider left"></div>
+            <div class="people-grid mt-4">
+              <span class="person-tag"><i class="fa fa-user mr-2" style="color:#419bbd;"></i>Miguel Morgado</span>
+              <span class="person-tag"><i class="fa fa-user mr-2" style="color:#419bbd;"></i>João Cardoso</span>
+              <span class="person-tag"><i class="fa fa-user mr-2" style="color:#419bbd;"></i>João Macedo</span>
+              <span class="person-tag"><i class="fa fa-user mr-2" style="color:#419bbd;"></i>Nuno Lourenço</span>
+              <span class="person-tag"><i class="fa fa-user mr-2" style="color:#419bbd;"></i>Ernesto Costa</span>
+            </div>
+            <p class="mt-3" style="color:#888; font-size:0.9rem;"><i class="fa fa-university mr-1" style="color:#419bbd;"></i>Universidade de Coimbra (UC)</p>
+          </div>
+          <!-- Institutions -->
+          <div class="col-md-6">
+            <p class="section-subtitle">Parceiros</p>
+            <h2 class="section-title">Instituições Participantes</h2>
+            <div class="divider left"></div>
+            <div class="mt-4">
+              <div class="institution-item">
+                <div class="inst-icon"><i class="fa fa-building"></i></div>
+                <span>DeepVision Technologies, Lda</span>
+              </div>
+              <div class="institution-item">
+                <div class="inst-icon"><i class="fa fa-university"></i></div>
+                <span>Universidade de Coimbra</span>
+              </div>
+              <div class="institution-item">
+                <div class="inst-icon"><i class="fa fa-hospital"></i></div>
+                <span>ULS Coimbra – Unidade Local de Saúde de Coimbra</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PROJECT DETAILS ── -->
+    <div class="info-section" style="background:#fff;">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-10 text-center mb-5">
+            <p class="section-subtitle">Financiamento</p>
+            <h2 class="section-title">Detalhes do Projeto</h2>
+            <div class="divider"></div>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-5 mb-3">
+            <div class="info-card">
+              <h5><i class="fa fa-tag mr-2" style="color:#419bbd;"></i>Referência</h5>
+              <p>COMPETE2030-FEDER-02249600</p>
+            </div>
+            <div class="info-card">
+              <h5><i class="fa fa-flask mr-2" style="color:#419bbd;"></i>Acrónimo</h5>
+              <p>BioVision</p>
+            </div>
+            <div class="info-card">
+              <h5><i class="fa fa-map-marker mr-2" style="color:#419bbd;"></i>Área de Intervenção</h5>
+              <p>Nacional</p>
+            </div>
+            <div class="info-card">
+              <h5><i class="fa fa-calendar mr-2" style="color:#419bbd;"></i>Período de Execução</h5>
+              <p>01/05/2025 a 30/04/2028</p>
+            </div>
+          </div>
+          <div class="col-md-5 mb-3">
+            <div class="info-card">
+              <h5><i class="fa fa-euro-sign mr-2" style="color:#419bbd;"></i>Custo Total Elegível</h5>
+              <p>1 599 774,72 €</p>
+            </div>
+            <div class="info-card">
+              <h5><i class="fa fa-flag mr-2" style="color:#419bbd;"></i>Apoio Financeiro da União Europeia</h5>
+              <p>FEDER: 1 318 912,32 €</p>
+            </div>
+            <div class="info-card">
+              <h5><i class="fa fa-percent mr-2" style="color:#419bbd;"></i>Cofinanciamento da UE</h5>
+              <p>83%</p>
+            </div>
+            <div class="info-card">
+              <h5><i class="fa fa-info-circle mr-2" style="color:#419bbd;"></i>Programa de Financiamento</h5>
+              <p>PT2030 – COMPETE 2030<br>SIID – I&D Empresarial – Operações em Copromoção</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CONTACT ── -->
+    <div class="info-section" style="background:#f8fafc;">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-md-8">
+            <p class="section-subtitle">Contacto</p>
+            <h2 class="section-title">Técnico do Projeto</h2>
+            <div class="divider"></div>
+            <p class="mt-3" style="font-size:1.05rem;">DeepVision Technologies</p>
+            <a href="mailto:geraldeepvision@gmail.com" class="btn-contact">
+              <i class="fa fa-envelope mr-2"></i>geraldeepvision@gmail.com
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── BROCHURE IMAGE ── -->
+    <section class="biovision-content" style="background:#f8fafc;">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-10 text-center mb-4">
+            <span class="section-badge">Product Overview</span>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-10">
+            <div class="brochure-card">
+              <img src="/images/631a5d20-1.png" alt="BioVision Brochure" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="ftco-footer ftco-section img">
+      <div class="container-fluid px-3 px-md-4">
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 style="color: white" class="ftco-heading-2">DeepVision Medical AI</h2>
+              <p style="color: white">Hyperspectral imaging and AI to support evidence‑based chronic wound care.</p>
+              <ul class="ftco-footer-social list-unstyled mt-5">
+                <li class="ftco-animate"><a style="background-color: #0599c6" href="#" aria-label="Twitter"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="#" aria-label="Facebook"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a style="background-color: #cd16f6" href="#" aria-label="Instagram"><span class="icon-instagram"></span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-4">
+              <h2 style="color: white" class="ftco-heading-2">Company</h2>
+              <ul class="list-unstyled">
+                <li><a style="color: white" href="/#about-section"><span style="color: white" class="icon-long-arrow-right mr-2"></span>About</a></li>
+                <li><a style="color: white" href="/#technology-section"><span style="color: white" class="icon-long-arrow-right mr-2"></span>Technology</a></li>
+                <li><a style="color: white" href="/#contact-section"><span style="color: white" class="icon-long-arrow-right mr-2"></span>Contact</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 style="color: white" class="ftco-heading-2">Questions?</h2>
+              <div class="block-23 mb-3">
+                <ul>
+                  <li><span style="color: white" class="icon icon-map-marker"></span><span style="color: white" class="text">Miranda do Corvo, Portugal</span></li>
+                  <li><a style="color: white" href="tel:+351938929505"><span style="color: white" class="icon icon-phone"></span><span style="color: white" class="text">+351 938 929 505</span></a></li>
+                  <li><a style="color: white" href="mailto:geraldeepvision@gmail.com"><span style="color: white" class="icon icon-envelope pr-4"></span><span style="color: white" class="text">geraldeepvision@gmail.com</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <p style="color: white">© <script>document.write(new Date().getFullYear());</script> DeepVision Technologies. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JS dependencies -->
+    <script src="/legacy/js/jquery-3.2.1.min.js"></script>
+    <script src="/legacy/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="/legacy/js/popper.min.js"></script>
+    <script src="/legacy/js/bootstrap.min.js"></script>
+    <script src="/legacy/js/jquery.easing.1.3.js"></script>
+    <script src="/legacy/js/jquery.waypoints.min.js"></script>
+    <script src="/legacy/js/jquery.stellar.min.js"></script>
+    <script src="/legacy/js/owl.carousel.min.js"></script>
+    <script src="/legacy/js/jquery.magnific-popup.min.js"></script>
+    <script src="/legacy/js/jquery.animateNumber.min.js"></script>
+    <script src="/legacy/js/scrollax.min.js"></script>
+    <script src="/legacy/js/aos.js"></script>
+    <script src="/legacy/js/main.js"></script>
+  <script src="/legacy/js/deepvision-animations.js"></script>
+</body>
+</html>
+
+

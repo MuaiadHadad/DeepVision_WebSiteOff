@@ -1,0 +1,937 @@
+/*
+ * DeepVision – Style Enhancements
+ * Brand primary: #419bbd | Dark navy navbar: #1a2332
+ * Keeps all original colors, adds modern polish.
+ */
+
+/* NOTE: Google Fonts are loaded via <link> in index.html – no @import here to avoid render blocking */
+
+/* ─── CSS Variables ────────────────────────────────────────────── */
+:root {
+  --dv-primary:   #419bbd;
+  --dv-primary-dark: #2e7a9a;
+  --dv-primary-light: #6bb8d4;
+  --dv-dark:      #1a2332;
+  --dv-dark-2:    #243044;
+  --dv-white:     #ffffff;
+  --dv-gray-100:  #f8fafc;
+  --dv-gray-200:  #e8eef4;
+  --dv-gray-500:  #6c8096;
+  --dv-gray-700:  #374151;
+  --dv-shadow-sm: 0 2px 8px rgba(65,155,189,.12);
+  --dv-shadow-md: 0 8px 32px rgba(65,155,189,.18);
+  --dv-shadow-lg: 0 20px 60px rgba(65,155,189,.22);
+  --dv-radius:    12px;
+  --dv-radius-lg: 20px;
+  --dv-transition: all .3s cubic-bezier(.4,0,.2,1);
+}
+
+/* ─── Fix horizontal scroll WITHOUT breaking vertical scroll ─────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip; /* clip instead of hidden — does NOT block vertical scroll */
+}
+
+body {
+  overflow-x: clip;
+  margin: 0;
+}
+
+/* Bootstrap 4 negative row margins → reset */
+.row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.row > [class*="col"] {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.no-gutters > [class*="col"],
+.no-gutters > [class*=" col"] {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.container-fluid {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+  max-width: 100%;
+}
+
+section,
+nav,
+footer {
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+img,
+video {
+  max-width: 100%;
+}
+
+/* ─── Base / Typography ─────────────────────────────────────────── */
+body {
+  font-family: 'Inter', 'Poppins', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--dv-gray-700);
+  background: var(--dv-white);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5 {
+  font-family: 'Poppins', 'Inter', Arial, sans-serif;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--dv-dark);
+}
+
+p { color: var(--dv-gray-500); }
+
+a {
+  color: var(--dv-primary);
+  transition: var(--dv-transition);
+}
+a:hover { color: var(--dv-primary-dark); text-decoration: none; }
+
+/* ─── Navbar styling (background handled by layout.tsx) ────────── */
+
+#ftco-navbar .container {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+/* Nav links */
+#ftco-navbar .navbar-nav .nav-item .nav-link {
+  color: #fff !important;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: .04em;
+  padding: 10px 18px !important;
+  border-radius: 8px;
+  transition: var(--dv-transition);
+  position: relative;
+}
+
+#ftco-navbar .navbar-nav .nav-item .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 18px;
+  right: 18px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transform: scaleX(0);
+  transition: transform .3s cubic-bezier(.4,0,.2,1);
+}
+
+#ftco-navbar .navbar-nav .nav-item .nav-link:hover,
+#ftco-navbar .navbar-nav .nav-item .nav-link:focus {
+  color: #fff !important;
+  background: rgba(255,255,255,.18);
+}
+
+#ftco-navbar .navbar-nav .nav-item .nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* Logo in navbar */
+#ftco-navbar .navbar-brand img {
+  height: 72px !important;
+  width: auto;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,.2));
+  transition: var(--dv-transition);
+}
+#ftco-navbar .navbar-brand img:hover {
+  filter: brightness(1.1) drop-shadow(0 4px 12px rgba(255,255,255,.3));
+}
+
+/* Mobile toggler */
+#ftco-navbar .navbar-toggler {
+  border: 1px solid rgba(255,255,255,.5) !important;
+  color: #fff !important;
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+
+/* ─── Hero Section ──────────────────────────────────────────────── */
+.hero-wrap {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh !important;
+  display: flex;
+  align-items: center;
+}
+
+.hero-wrap .slider-text {
+  height: auto !important;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-wrap > div:first-child {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(
+    135deg,
+    rgba(26,35,50,.82) 0%,
+    rgba(65,155,189,.35) 100%
+  ) !important;
+}
+
+/* Hero subheading badge */
+.hero-wrap .subheading {
+  display: inline-block;
+  background: rgba(65,155,189,.2);
+  border: 1px solid rgba(65,155,189,.45);
+  color: var(--dv-primary-light) !important;
+  padding: 6px 18px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  backdrop-filter: blur(6px);
+}
+
+/* Hero title */
+.hero-wrap h1 {
+  font-size: clamp(2.2rem, 5vw, 3.8rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.1 !important;
+  color: #fff !important;
+  margin-bottom: 24px;
+  text-shadow: 0 2px 20px rgba(0,0,0,.3);
+}
+
+/* Hero paragraph */
+.hero-wrap .col-md-8 p {
+  font-size: 1.15rem;
+  color: rgba(255,255,255,.82) !important;
+  max-width: 580px;
+  line-height: 1.8;
+}
+
+/* ─── Section Base ──────────────────────────────────────────────── */
+.ftco-section {
+  padding: 100px 0;
+}
+
+/* Heading section refinement */
+.heading-section h2 {
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 800;
+  color: var(--dv-dark);
+  position: relative;
+  display: inline-block;
+}
+
+.heading-section .subheading {
+  font-size: 11px;
+  letter-spacing: .18em;
+  font-weight: 700;
+  color: var(--dv-primary) !important;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+/* ─── About Section ─────────────────────────────────────────────── */
+#about-section {
+  background: var(--dv-gray-100);
+}
+
+#about-section .img {
+  border-radius: var(--dv-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--dv-shadow-lg);
+}
+
+#about-section h2 {
+  font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+  font-weight: 800;
+  color: var(--dv-dark);
+}
+
+#about-section p {
+  font-size: 1rem;
+  color: var(--dv-gray-500);
+  line-height: 1.8;
+}
+
+#about-section ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+#about-section ul li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 10px;
+  color: var(--dv-gray-700);
+  font-size: .97rem;
+}
+
+#about-section ul li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--dv-primary);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+/* ─── Intro Banner ──────────────────────────────────────────────── */
+.ftco-intro {
+  padding: 80px 0 !important;
+  background: linear-gradient(135deg, #2e7a9a 0%, #419bbd 50%, #5ab3d4 100%) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.ftco-intro::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.06);
+  pointer-events: none;
+}
+
+.ftco-intro::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: -40px;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.04);
+  pointer-events: none;
+}
+
+.ftco-intro h2 {
+  font-size: clamp(1.6rem, 3vw, 2.6rem) !important;
+  font-weight: 800 !important;
+  color: #fff !important;
+  margin-bottom: 16px;
+}
+
+.ftco-intro p {
+  color: rgba(255,255,255,.88) !important;
+  font-size: 1.05rem;
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* ─── Technology / Department Cards ────────────────────────────── */
+#technology-section {
+  background: var(--dv-white);
+}
+
+.department-wrap {
+  border: none !important;
+  border-radius: var(--dv-radius) !important;
+  margin: 6px;
+  background: var(--dv-white);
+  box-shadow: var(--dv-shadow-sm);
+  transition: var(--dv-transition) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.department-wrap::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--dv-primary), var(--dv-primary-light));
+  transform: scaleX(0);
+  transition: transform .35s ease;
+  transform-origin: left;
+}
+
+.department-wrap:hover::before,
+.department-wrap:focus::before {
+  transform: scaleX(1);
+}
+
+.department-wrap:hover,
+.department-wrap:focus {
+  background: linear-gradient(145deg, #2e7a9a, #419bbd) !important;
+  box-shadow: var(--dv-shadow-md) !important;
+  transform: translateY(-6px);
+}
+
+.department-wrap .text .icon span {
+  font-size: 36px !important;
+  color: var(--dv-primary) !important;
+  transition: var(--dv-transition);
+}
+
+.department-wrap:hover .text .icon span,
+.department-wrap:focus .text .icon span {
+  color: #fff !important;
+}
+
+.department-wrap .text h3 {
+  font-size: 17px !important;
+  font-weight: 700 !important;
+  color: var(--dv-dark);
+  margin-top: 12px;
+  margin-bottom: 8px;
+  transition: var(--dv-transition);
+}
+
+.department-wrap:hover .text h3 a,
+.department-wrap:focus .text h3 a {
+  color: #fff !important;
+}
+
+.department-wrap .text p {
+  font-size: .9rem;
+  color: var(--dv-gray-500);
+  transition: var(--dv-transition);
+}
+
+.department-wrap:hover .text p,
+.department-wrap:focus .text p {
+  color: rgba(255,255,255,.82) !important;
+}
+
+.img-dept {
+  height: 100%;
+  min-height: 480px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ─── Stats / Facts Section ─────────────────────────────────────── */
+.ftco-facts {
+  padding: 100px 0 !important;
+  background: linear-gradient(135deg, #2e7a9a 0%, #419bbd 60%, #5ab3d4 100%) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.ftco-facts::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.ftco-facts .heading-section-white h2 {
+  font-size: clamp(1.6rem, 2.8vw, 2.4rem) !important;
+  color: #fff !important;
+  font-weight: 800 !important;
+}
+
+.ftco-facts .heading-section-white .subheading {
+  color: rgba(255,255,255,.9) !important;
+}
+
+.ftco-counter .text strong.number {
+  font-size: clamp(2.4rem, 4vw, 3.2rem) !important;
+  font-weight: 900 !important;
+  color: #fff !important;
+  line-height: 1;
+  text-shadow: 0 2px 12px rgba(0,0,0,.2);
+}
+
+.ftco-counter .text span {
+  font-size: .95rem !important;
+  color: rgba(255,255,255,.82) !important;
+  font-weight: 500 !important;
+  letter-spacing: .04em !important;
+  margin-top: 4px;
+}
+
+.ftco-counter .block-18 {
+  padding: 32px 20px;
+  background: rgba(255,255,255,.1);
+  border-radius: var(--dv-radius);
+  border: 1px solid rgba(255,255,255,.15);
+  backdrop-filter: blur(6px);
+  transition: var(--dv-transition);
+}
+
+.ftco-counter .block-18:hover {
+  background: rgba(255,255,255,.18);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,.12);
+}
+
+/* ─── Partners Section ──────────────────────────────────────────── */
+#doctor-section {
+  background: var(--dv-gray-100);
+}
+
+.staff {
+  border-radius: var(--dv-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--dv-shadow-sm);
+  transition: var(--dv-transition) !important;
+  background: var(--dv-white);
+}
+
+.staff:hover {
+  box-shadow: var(--dv-shadow-md) !important;
+  transform: translateY(-8px);
+}
+
+.staff .img-wrap {
+  height: 220px !important;
+  overflow: hidden;
+}
+
+.staff .img {
+  background-size: cover !important;
+  background-position: center !important;
+  transition: transform .5s ease !important;
+}
+
+.staff:hover .img {
+  transform: scale(1.06) !important;
+  margin-top: 0 !important;
+}
+
+.staff .text {
+  padding: 20px !important;
+}
+
+.staff .text h3 {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: var(--dv-dark) !important;
+  margin-bottom: 4px !important;
+}
+
+.staff .text .position {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: .1em !important;
+  color: var(--dv-primary) !important;
+  text-transform: uppercase !important;
+}
+
+/* ─── Contact Boxes ─────────────────────────────────────────────── */
+.contact-section {
+  background: var(--dv-white);
+  padding: 100px 0;
+}
+
+.contact-section .box {
+  border-radius: var(--dv-radius-lg) !important;
+  overflow: hidden;
+  transition: var(--dv-transition);
+  background: linear-gradient(145deg, #2e7a9a, #419bbd) !important;
+  border: none !important;
+  box-shadow: var(--dv-shadow-md);
+}
+
+.contact-section .box:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--dv-shadow-lg) !important;
+}
+
+.contact-section .box .icon {
+  background: rgba(255,255,255,.15) !important;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 16px rgba(0,0,0,.1);
+}
+
+.contact-section .box .icon span {
+  color: #fff !important;
+  font-size: 34px !important;
+}
+
+.contact-section .box h3 {
+  color: rgba(255,255,255,.9) !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: .08em !important;
+}
+
+.contact-section .box p,
+.contact-section .box p a {
+  color: rgba(255,255,255,.85) !important;
+  font-size: .95rem;
+}
+
+.contact-section .box p a:hover {
+  color: #fff !important;
+}
+
+#contact-section .heading-section h2 {
+  font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+}
+
+/* ─── Footer — same color as ftco-facts (#419bbd) ──────────────── */
+.ftco-footer {
+  background: #419bbd !important;
+  padding: 80px 0 40px !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.ftco-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(255,255,255,.3);
+}
+
+.ftco-footer .ftco-heading-2 {
+  color: #fff !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  margin-bottom: 24px;
+  letter-spacing: .02em;
+}
+
+.ftco-footer p {
+  color: rgba(255,255,255,.85) !important;
+  font-size: .95rem;
+  line-height: 1.75;
+}
+
+.ftco-footer a {
+  color: rgba(255,255,255,.85) !important;
+  transition: var(--dv-transition);
+}
+
+.ftco-footer a:hover {
+  color: #fff !important;
+  padding-left: 4px;
+}
+
+.ftco-footer .list-unstyled li {
+  margin-bottom: 10px;
+}
+
+.ftco-footer .list-unstyled li a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ftco-footer .list-unstyled li a span {
+  color: rgba(255,255,255,.7) !important;
+  font-size: 13px;
+}
+
+.ftco-footer-social {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 20px !important;
+  padding: 0 !important;
+}
+
+.ftco-footer-social li {
+  margin: 0 !important;
+}
+
+.ftco-footer-social li a {
+  width: 44px !important;
+  height: 44px !important;
+  background: rgba(255,255,255,.2) !important;
+  border: 1px solid rgba(255,255,255,.35) !important;
+  border-radius: 12px !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  transition: var(--dv-transition);
+}
+
+.ftco-footer-social li a:hover {
+  background: rgba(255,255,255,.35) !important;
+  border-color: rgba(255,255,255,.6) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.15);
+}
+
+.ftco-footer-social li a span {
+  font-size: 18px !important;
+  color: #fff !important;
+}
+
+.ftco-footer .row:last-child {
+  border-top: 1px solid rgba(255,255,255,.25);
+  padding-top: 30px;
+  margin-top: 20px;
+}
+
+.ftco-footer .row:last-child p {
+  font-size: .88rem;
+  color: rgba(255,255,255,.75) !important;
+}
+
+.block-23 ul li .icon {
+  color: #fff !important;
+  font-size: 16px !important;
+}
+
+.block-23 ul li span.text,
+.block-23 ul li a span.text {
+  color: rgba(255,255,255,.85) !important;
+  font-size: .92rem;
+}
+
+.block-23 ul li a:hover span.text {
+  color: #fff !important;
+}
+
+/* ─── Loader ────────────────────────────────────────────────────── */
+#ftco-loader .path {
+  stroke: var(--dv-primary);
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────────── */
+html::-webkit-scrollbar { width: 6px; }
+html::-webkit-scrollbar-track { background: var(--dv-dark); }
+html::-webkit-scrollbar-thumb { background: var(--dv-primary); border-radius: 6px; }
+html::-webkit-scrollbar-thumb:hover { background: var(--dv-primary-light); }
+
+/* ─── Responsive ────────────────────────────────────────────────── */
+@media (max-width: 991.98px) {
+  #ftco-navbar { padding: 6px 0 !important; }
+
+  #ftco-navbar .navbar-collapse {
+    background: #3a8dac !important;
+    border-radius: 0 0 var(--dv-radius) var(--dv-radius);
+    padding: 16px;
+    border-top: 1px solid rgba(255,255,255,.2);
+  }
+
+  .hero-wrap h1 { font-size: clamp(1.8rem, 6vw, 2.8rem) !important; }
+  .department-wrap:hover { transform: none; }
+  .ftco-section { padding: 60px 0; }
+  .ftco-intro, .ftco-facts { padding: 60px 0 !important; }
+}
+
+@media (max-width: 767.98px) {
+  .ftco-footer { padding: 60px 0 30px !important; }
+  .staff .img-wrap { height: 200px !important; }
+  .ftco-counter .block-18 { margin-bottom: 16px; }
+}
+
+/* ─── AOS compatibility ─────────────────────────────────────────── */
+[data-aos] { pointer-events: none; }
+[data-aos].aos-animate { pointer-events: auto; }
+
+/* ═══════════════════════════════════════════════════════════════════
+   PDF BROCHURE BUTTON  –  hero section
+   ═══════════════════════════════════════════════════════════════════ */
+
+@keyframes dv-pdf-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,.35), 0 6px 28px rgba(0,0,0,.35); }
+  50%       { box-shadow: 0 0 0 10px rgba(255,255,255,0), 0 6px 28px rgba(0,0,0,.35); }
+}
+
+@keyframes dv-pdf-shine {
+  0%   { left: -75%; opacity: .55; }
+  60%  { left: 120%;  opacity: .55; }
+  100% { left: 120%;  opacity: 0;   }
+}
+
+@keyframes dv-pdf-bounce-in {
+  0%   { opacity: 0; transform: translateY(22px) scale(.92); }
+  60%  { transform: translateY(-4px) scale(1.03); }
+  100% { opacity: 1; transform: translateY(0)    scale(1);   }
+}
+
+@keyframes dv-badge-pop {
+  0%   { transform: scale(0) rotate(-12deg); opacity: 0; }
+  70%  { transform: scale(1.2) rotate(4deg); opacity: 1; }
+  100% { transform: scale(1)   rotate(0deg); opacity: 1; }
+}
+
+/* --- Base button --- */
+.dv-pdf-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px 14px 20px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, rgba(255,255,255,.22) 0%, rgba(255,255,255,.08) 100%);
+  border: 1.5px solid rgba(255,255,255,.55);
+  color: #fff !important;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: .95rem;
+  letter-spacing: .03em;
+  text-decoration: none !important;
+  overflow: hidden;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  /* entrance animation */
+  animation: dv-pdf-bounce-in .7s cubic-bezier(.34,1.56,.64,1) both,
+             dv-pdf-pulse 3s ease-in-out 1.2s infinite;
+  transition: transform .25s cubic-bezier(.4,0,.2,1),
+              background .25s ease,
+              border-color .25s ease,
+              box-shadow .25s ease;
+  will-change: transform;
+}
+
+.dv-pdf-btn:hover,
+.dv-pdf-btn:focus-visible {
+  background: linear-gradient(135deg, rgba(255,255,255,.36) 0%, rgba(255,255,255,.18) 100%);
+  border-color: rgba(255,255,255,.9);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 36px rgba(0,0,0,.4) !important;
+  animation-play-state: paused;
+  outline: none;
+}
+
+.dv-pdf-btn:active {
+  transform: translateY(0) scale(.97);
+  box-shadow: 0 4px 16px rgba(0,0,0,.3) !important;
+}
+
+/* --- Icon wrapper --- */
+.dv-pdf-btn__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.25);
+  border: 1px solid rgba(255,255,255,.4);
+  flex-shrink: 0;
+  transition: background .25s ease, transform .25s ease;
+}
+
+.dv-pdf-btn__icon svg {
+  width: 17px;
+  height: 17px;
+  stroke: #fff;
+}
+
+.dv-pdf-btn:hover .dv-pdf-btn__icon {
+  background: rgba(255,255,255,.38);
+  transform: rotate(-8deg) scale(1.12);
+}
+
+/* --- Label --- */
+.dv-pdf-btn__label {
+  flex: 1;
+}
+
+/* --- PDF badge pill --- */
+.dv-pdf-btn__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 8px;
+  border-radius: 20px;
+  background: #fff;
+  color: var(--dv-primary, #419bbd);
+  font-size: .65rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+  flex-shrink: 0;
+  animation: dv-badge-pop .5s cubic-bezier(.34,1.56,.64,1) 1s both;
+  transition: transform .25s ease;
+}
+
+.dv-pdf-btn:hover .dv-pdf-btn__badge {
+  transform: scale(1.08);
+}
+
+/* --- Shine sweep --- */
+.dv-pdf-btn__shine {
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0)   0%,
+    rgba(255,255,255,.45) 50%,
+    rgba(255,255,255,0)   100%
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+  animation: dv-pdf-shine 3.5s ease-in-out 2s infinite;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   PDF BROCHURE LINK  –  navbar
+   ═══════════════════════════════════════════════════════════════════ */
+
+.dv-nav-pdf-item {
+  margin-left: 6px;
+}
+
+.dv-nav-pdf-link {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 14px !important;
+  border-radius: 50px;
+  border: 1.5px solid rgba(255,255,255,.7) !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  font-size: .85rem;
+  transition: background .25s ease, border-color .25s ease, transform .2s ease, box-shadow .2s ease !important;
+  white-space: nowrap;
+}
+
+.dv-nav-pdf-link:hover,
+.dv-nav-pdf-link:focus-visible {
+  background: rgba(255,255,255,.2) !important;
+  border-color: #fff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,.25);
+  outline: none;
+}
+
+.dv-nav-pdf-icon {
+  display: flex;
+  align-items: center;
+}
+
+.dv-nav-pdf-icon svg {
+  stroke: #fff;
+}
+
+@media (max-width: 991.98px) {
+  .dv-nav-pdf-item { margin-left: 0; margin-top: 6px; }
+  .dv-nav-pdf-link { display: inline-flex !important; }
+}
+

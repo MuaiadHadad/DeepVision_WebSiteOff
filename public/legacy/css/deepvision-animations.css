@@ -1,0 +1,828 @@
+/*
+ * DeepVision – Advanced Animations & Creative Motion
+ * Layered on top of deepvision-enhancements.css
+ */
+
+/* ═══════════════════════════════════════════════════════════════════
+   CRITICAL FIX — style.css sets .ftco-animate { opacity:0; visibility:hidden }
+   and relies on jQuery Waypoints to reveal elements.
+   In the Next.js context Waypoints can fail to fire, leaving everything
+   permanently invisible.  We override that here so elements are ALWAYS
+   visible, then re-add a smooth entrance animation ourselves.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.ftco-animate {
+  opacity: 1 !important;
+  visibility: visible !important;
+  animation: dvFadeInUp .6s cubic-bezier(.4, 0, .2, 1) both;
+}
+
+/* Stagger each card inside a column */
+.col-md-4 .ftco-animate:nth-child(1) { animation-delay: .05s; }
+.col-md-4 .ftco-animate:nth-child(2) { animation-delay: .18s; }
+.col-md-4 .ftco-animate:nth-child(3) { animation-delay: .31s; }
+
+/* When Waypoints DOES work, ftco-animated is added — honour it */
+.ftco-animate.ftco-animated {
+  animation: none;
+}
+.ftco-animate.fadeInUp    { animation: dvFadeInUp    .6s cubic-bezier(.4,0,.2,1) both; }
+.ftco-animate.fadeInLeft  { animation: dvFadeInLeft  .6s cubic-bezier(.4,0,.2,1) both; }
+.ftco-animate.fadeInRight { animation: dvFadeInRight .6s cubic-bezier(.4,0,.2,1) both; }
+.ftco-animate.fadeIn      { animation: dvScaleIn     .6s cubic-bezier(.4,0,.2,1) both; }
+
+/* ─── Keyframe Library ────────────────────────────────────────────── */
+
+@keyframes dvFadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes dvFadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes dvFadeInLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes dvFadeInRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes dvScaleIn {
+  from { opacity: 0; transform: scale(.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes dvGlow {
+  0%, 100% { text-shadow: 0 0 20px rgba(65,155,189,.6), 0 0 40px rgba(65,155,189,.3); }
+  50%       { text-shadow: 0 0 40px rgba(65,155,189,.9), 0 0 80px rgba(65,155,189,.5); }
+}
+
+@keyframes dvFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-14px); }
+}
+
+@keyframes dvPulseRing {
+  0%   { transform: scale(.9); opacity: 1; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+@keyframes dvSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes dvSlideBar {
+  from { width: 0; }
+  to   { width: 60px; }
+}
+
+@keyframes dvWaveIn {
+  0%   { clip-path: inset(0 100% 0 0); opacity: 0; }
+  100% { clip-path: inset(0 0% 0 0);   opacity: 1; }
+}
+
+@keyframes dvParticleFloat {
+  0%   { transform: translateY(0) translateX(0) scale(1); opacity: .7; }
+  33%  { transform: translateY(-30px) translateX(20px) scale(1.1); opacity: .5; }
+  66%  { transform: translateY(-15px) translateX(-15px) scale(.9); opacity: .6; }
+  100% { transform: translateY(0) translateX(0) scale(1); opacity: .7; }
+}
+
+@keyframes dvHeroGradient {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes dvCounterPop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.18); }
+  100% { transform: scale(1); }
+}
+
+@keyframes dvBorderGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(65,155,189,0); }
+  50%       { box-shadow: 0 0 0 8px rgba(65,155,189,.25); }
+}
+
+@keyframes dvScanline {
+  0%   { top: -10%; }
+  100% { top: 110%; }
+}
+
+
+@keyframes dvLogoSpin {
+  0%   { filter: drop-shadow(0 0 6px rgba(65,155,189,.4)) brightness(1); }
+  50%  { filter: drop-shadow(0 0 18px rgba(65,155,189,.9)) brightness(1.15); }
+  100% { filter: drop-shadow(0 0 6px rgba(65,155,189,.4)) brightness(1); }
+}
+
+@keyframes dvTextReveal {
+  from { clip-path: inset(0 100% 0 0); opacity: 0; }
+  to   { clip-path: inset(0 0% 0 0);   opacity: 1; }
+}
+
+@keyframes dvBlobMorph {
+  0%, 100% { border-radius: 60% 40% 70% 30% / 50% 60% 40% 70%; }
+  25%       { border-radius: 40% 60% 30% 70% / 60% 40% 70% 50%; }
+  50%       { border-radius: 70% 30% 60% 40% / 40% 70% 50% 60%; }
+  75%       { border-radius: 30% 70% 40% 60% / 70% 30% 60% 40%; }
+}
+
+@keyframes dvShimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ─── Navbar Animation ────────────────────────────────────────────── */
+
+#ftco-navbar {
+  /* No slide animation — background is always solid #419bbd */
+}
+
+#ftco-navbar .navbar-brand img {
+  animation: dvLogoSpin 4s ease-in-out infinite;
+}
+
+/* Active nav link indicator */
+#ftco-navbar .navbar-nav .nav-item.active .nav-link {
+  background: rgba(255,255,255,.22) !important;
+}
+
+#ftco-navbar .navbar-nav .nav-item .nav-link {
+  animation: dvFadeInDown .5s ease both;
+}
+
+#ftco-navbar .navbar-nav .nav-item:nth-child(1) .nav-link { animation-delay: .1s; }
+#ftco-navbar .navbar-nav .nav-item:nth-child(2) .nav-link { animation-delay: .2s; }
+#ftco-navbar .navbar-nav .nav-item:nth-child(3) .nav-link { animation-delay: .3s; }
+#ftco-navbar .navbar-nav .nav-item:nth-child(4) .nav-link { animation-delay: .4s; }
+
+/* ─── Hero Enhancements ────────────────────────────────────────────── */
+
+/* Animated gradient overlay on hero */
+.hero-wrap > div:first-child {
+  background: linear-gradient(
+    270deg,
+    rgba(26,35,50,.88),
+    rgba(65,155,189,.45),
+    rgba(26,35,50,.82),
+    rgba(90,179,212,.35)
+  ) !important;
+  background-size: 400% 400% !important;
+  animation: dvHeroGradient 12s ease infinite !important;
+}
+
+/* Hero text animations */
+.hero-wrap .subheading {
+  animation: dvFadeInDown .8s .3s cubic-bezier(.4,0,.2,1) both;
+}
+
+.hero-wrap h1 {
+  animation: dvFadeInUp 1s .55s cubic-bezier(.4,0,.2,1) both;
+}
+
+.hero-wrap .col-md-8 p {
+  animation: dvFadeInUp .9s .85s cubic-bezier(.4,0,.2,1) both;
+}
+
+/* Glowing pulse on hero badge */
+.hero-wrap .subheading {
+  position: relative;
+}
+
+.hero-wrap .subheading::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid rgba(65,155,189,.6);
+  animation: dvPulseRing 2.5s ease-out infinite;
+}
+
+/* Floating particles canvas layer */
+#dv-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-wrap .container { position: relative; z-index: 2; }
+
+/* Scanline effect on hero */
+.hero-wrap::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(65,155,189,.5), transparent);
+  animation: dvScanline 5s linear infinite;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* ─── About Section ─────────────────────────────────────────────────── */
+
+#about-section .img {
+  animation: dvBlobMorph 10s ease-in-out infinite;
+  transition: transform .4s ease;
+}
+
+#about-section .img:hover {
+  transform: scale(1.03);
+}
+
+/* Staggered list items */
+#about-section ul li {
+  opacity: 1; /* always visible — animation is a bonus */
+  transform: translateX(0);
+  transition: opacity .5s ease, transform .5s ease;
+}
+
+#about-section.dv-in-view ul li:nth-child(1) { animation: dvFadeInLeft .6s .1s both; }
+#about-section.dv-in-view ul li:nth-child(2) { animation: dvFadeInLeft .6s .2s both; }
+#about-section.dv-in-view ul li:nth-child(3) { animation: dvFadeInLeft .6s .3s both; }
+#about-section.dv-in-view ul li:nth-child(4) { animation: dvFadeInLeft .6s .4s both; }
+
+/* Heading accent underline animation */
+.heading-section h2 {
+  position: relative;
+}
+
+.heading-section h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, var(--dv-primary), var(--dv-primary-light));
+  border-radius: 3px;
+  transition: width .7s cubic-bezier(.4,0,.2,1);
+}
+
+.heading-section.dv-in-view h2::after,
+.ftco-animate.ftco-animated .heading-section h2::after {
+  width: 60px;
+}
+
+/* For centered headings */
+.text-center .heading-section h2::after,
+.heading-section.text-center h2::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ─── Intro Banner ───────────────────────────────────────────────────── */
+
+.ftco-intro h2 {
+  animation: dvGlow 3s ease-in-out infinite;
+}
+
+.ftco-intro p {
+  animation: dvFadeInUp .8s .4s both;
+}
+
+/* Shimmer on intro background */
+.ftco-intro::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255,255,255,.08) 40%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+  animation: dvShimmer 4s linear infinite;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* ─── Technology / Department Cards ─────────────────────────────────── */
+
+.department-wrap {
+  position: relative;
+  transition: transform .35s cubic-bezier(.34,1.2,.64,1), box-shadow .35s ease;
+  /* opacity always visible — animation triggered via ftco-animated class */
+}
+
+/* When ftco-animated (added by main.js waypoint) — run entrance */
+.department-wrap.ftco-animated {
+  animation: dvScaleIn .55s ease both;
+}
+
+.department-wrap:nth-child(1).ftco-animated { animation-delay: .05s; }
+.department-wrap:nth-child(2).ftco-animated { animation-delay: .15s; }
+.department-wrap:nth-child(3).ftco-animated { animation-delay: .25s; }
+
+/* Icon floating animation on hover */
+.department-wrap .text .icon span {
+  display: inline-block;
+  transition: transform .3s ease, color .3s ease;
+}
+
+.department-wrap:hover .text .icon span {
+  animation: dvFloat 1.8s ease-in-out infinite;
+  color: #fff !important;
+}
+
+/* Pulse ring on icons when hovered */
+.department-wrap .text .icon {
+  position: relative;
+  display: inline-block;
+}
+
+.department-wrap:hover .text .icon::before {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,.4);
+  animation: dvPulseRing 1.4s ease-out infinite;
+}
+
+/* Card number badge */
+.department-wrap::after {
+  content: attr(data-index);
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  font-size: 11px;
+  font-weight: 800;
+  color: rgba(65,155,189,.3);
+  letter-spacing: .08em;
+  transition: all .3s ease;
+}
+
+.department-wrap:hover::after {
+  color: rgba(255,255,255,.4);
+}
+
+/* ─── Stats / Facts Section ──────────────────────────────────────────── */
+
+.ftco-counter .block-18 {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer sweep on counter blocks */
+.ftco-counter .block-18::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,.15), transparent);
+  transform: skewX(-20deg);
+  animation: dvShimmerBlock 3s ease-in-out infinite;
+}
+
+@keyframes dvShimmerBlock {
+  0%   { left: -100%; }
+  60%, 100% { left: 150%; }
+}
+
+/* Number pop on count complete */
+.ftco-counter .block-18.dv-counted strong {
+  animation: dvCounterPop .4s ease;
+}
+
+/* ─── Partners / Staff cards ─────────────────────────────────────────── */
+
+.staff {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Colored top-bar reveal on hover */
+.staff::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--dv-primary), var(--dv-primary-light));
+  transform: scaleX(0);
+  transition: transform .45s cubic-bezier(.4,0,.2,1);
+  transform-origin: left;
+  z-index: 2;
+}
+
+.staff:hover::before {
+  transform: scaleX(1);
+}
+
+/* Overlay info reveal on hover */
+.staff .img-wrap {
+  position: relative;
+}
+
+.staff .img-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(26,35,50,.65), transparent);
+  opacity: 0;
+  transition: opacity .4s ease;
+}
+
+.staff:hover .img-wrap::after {
+  opacity: 1;
+}
+
+.staff .text h3 {
+  transition: color .3s ease;
+}
+
+.staff:hover .text h3 {
+  color: var(--dv-primary) !important;
+}
+
+/* ─── Contact Boxes ──────────────────────────────────────────────────── */
+
+.contact-section .box {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ripple on hover */
+.contact-section .box::after {
+  content: '';
+  position: absolute;
+  bottom: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,.12) 0%, transparent 70%);
+  transform: scale(0);
+  transition: transform .6s ease;
+  border-radius: 50%;
+}
+
+.contact-section .box:hover::after {
+  transform: scale(1);
+}
+
+/* Animated border-glow */
+.contact-section .box {
+  animation: dvBorderGlow 3s ease-in-out infinite;
+}
+
+/* Icon bounce on hover */
+.contact-section .box .icon span {
+  display: inline-block;
+  transition: transform .3s cubic-bezier(.34,1.56,.64,1);
+}
+
+.contact-section .box:hover .icon span {
+  transform: scale(1.3) rotate(-8deg);
+}
+
+/* ─── Footer ─────────────────────────────────────────────────────────── */
+
+.ftco-footer {
+  position: relative;
+}
+
+/* Floating blobs in footer background */
+.ftco-footer::after {
+  content: '';
+  position: absolute;
+  top: 20%;
+  right: -10%;
+  width: 320px;
+  height: 320px;
+  border-radius: 60% 40% 70% 30% / 50% 60% 40% 70%;
+  background: rgba(255,255,255,.04);
+  animation: dvBlobMorph 15s ease-in-out infinite, dvFloat 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.ftco-footer-social li a {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Social icon pop */
+.ftco-footer-social li a span {
+  display: inline-block;
+  transition: transform .3s cubic-bezier(.34,1.56,.64,1);
+}
+
+.ftco-footer-social li a:hover span {
+  transform: scale(1.25) rotate(15deg);
+}
+
+/* Footer links slide on hover */
+.ftco-footer .list-unstyled li a {
+  transform: translateX(0);
+  transition: transform .3s ease, color .3s ease;
+}
+
+.ftco-footer .list-unstyled li a:hover {
+  transform: translateX(6px);
+}
+
+/* ─── Scroll-triggered reveal utility ──────────────────────────────── */
+
+.dv-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .7s cubic-bezier(.4,0,.2,1), transform .7s cubic-bezier(.4,0,.2,1);
+}
+
+.dv-reveal.dv-in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dv-reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.dv-reveal-left.dv-in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.dv-reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.dv-reveal-right.dv-in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.dv-reveal-scale {
+  opacity: 0;
+  transform: scale(.9);
+  transition: opacity .7s ease, transform .7s cubic-bezier(.34,1.56,.64,1);
+}
+
+.dv-reveal-scale.dv-in-view {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Delay helpers */
+.dv-delay-1 { transition-delay: .1s !important; }
+.dv-delay-2 { transition-delay: .2s !important; }
+.dv-delay-3 { transition-delay: .3s !important; }
+.dv-delay-4 { transition-delay: .4s !important; }
+.dv-delay-5 { transition-delay: .5s !important; }
+.dv-delay-6 { transition-delay: .6s !important; }
+.dv-delay-7 { transition-delay: .7s !important; }
+.dv-delay-8 { transition-delay: .8s !important; }
+
+/* ─── Animated Scroll-to-top button ─────────────────────────────────── */
+
+#dv-scroll-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, var(--dv-primary-dark), var(--dv-primary));
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(65,155,189,.4);
+  opacity: 0;
+  transform: translateY(20px) scale(.9);
+  transition: opacity .4s ease, transform .4s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease;
+}
+
+#dv-scroll-top.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+#dv-scroll-top:hover {
+  box-shadow: 0 12px 32px rgba(65,155,189,.6);
+  transform: translateY(-4px) scale(1.05);
+}
+
+#dv-scroll-top svg {
+  width: 22px;
+  height: 22px;
+  stroke: #fff;
+  stroke-width: 2.5;
+  fill: none;
+  transition: transform .3s ease;
+}
+
+#dv-scroll-top:hover svg {
+  transform: translateY(-3px);
+}
+
+/* Progress ring inside scroll-top */
+#dv-scroll-top .progress-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  overflow: visible;
+}
+
+#dv-scroll-top .progress-ring circle {
+  stroke: rgba(255,255,255,.4);
+  stroke-width: 2;
+  fill: none;
+  stroke-dasharray: 172;
+  stroke-dashoffset: 172;
+  transition: stroke-dashoffset .2s ease;
+  transform-origin: center;
+  transform: rotate(-90deg);
+}
+
+/* ─── Navbar scroll progress bar ──────────────────────────────────── */
+
+#dv-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--dv-primary-dark), var(--dv-primary-light));
+  z-index: 10000;
+  transition: width .1s linear;
+  box-shadow: 0 0 10px rgba(65,155,189,.6);
+}
+
+/* ─── Typed cursor effect ──────────────────────────────────────────── */
+
+.dv-typed-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1em;
+  background: #fff;
+  margin-left: 4px;
+  vertical-align: middle;
+  animation: dvCursorBlink .7s step-end infinite;
+}
+
+@keyframes dvCursorBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ─── Magnetic button effect ──────────────────────────────────────── */
+
+.dv-magnetic {
+  transition: transform .2s cubic-bezier(.34,1.56,.64,1);
+  display: inline-block;
+}
+
+/* ─── Section transition dividers ────────────────────────────────── */
+
+.dv-divider {
+  position: relative;
+  height: 60px;
+  overflow: hidden;
+}
+
+.dv-divider svg {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ─── Counter Number Animated Background ─────────────────────────── */
+
+.ftco-counter .block-18 .text strong {
+  position: relative;
+  display: inline-block;
+}
+
+.ftco-counter .block-18 .text strong::after {
+  content: '';
+  position: absolute;
+  left: -8px;
+  right: -8px;
+  bottom: -4px;
+  height: 3px;
+  background: rgba(255,255,255,.4);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transition: transform .5s ease;
+}
+
+.ftco-counter .block-18.dv-in-view .text strong::after {
+  transform: scaleX(1);
+}
+
+/* ─── Tech cards grid stagger ─────────────────────────────────────── */
+
+#technology-section .department-wrap {
+  /* Cards are always visible; lift + shadow on hover only */
+  transform: translateY(0) scale(1);
+  transition: transform .35s cubic-bezier(.34,1.2,.64,1), box-shadow .35s ease;
+}
+
+#technology-section .department-wrap:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 16px 40px rgba(65,155,189,.18);
+}
+
+/* Stagger entrance when ftco-animated fires */
+#technology-section .department-wrap.ftco-animated {
+  animation: dvFadeInUp .55s cubic-bezier(.4,0,.2,1) both;
+}
+
+#technology-section .col-md-4:nth-child(1) .department-wrap.ftco-animated:nth-child(1) { animation-delay: .05s; }
+#technology-section .col-md-4:nth-child(1) .department-wrap.ftco-animated:nth-child(2) { animation-delay: .15s; }
+#technology-section .col-md-4:nth-child(1) .department-wrap.ftco-animated:nth-child(3) { animation-delay: .25s; }
+#technology-section .col-md-4:nth-child(2) .department-wrap.ftco-animated:nth-child(1) { animation-delay: .20s; }
+#technology-section .col-md-4:nth-child(2) .department-wrap.ftco-animated:nth-child(2) { animation-delay: .30s; }
+#technology-section .col-md-4:nth-child(2) .department-wrap.ftco-animated:nth-child(3) { animation-delay: .40s; }
+#technology-section .col-md-4:nth-child(3) .department-wrap.ftco-animated:nth-child(1) { animation-delay: .35s; }
+#technology-section .col-md-4:nth-child(3) .department-wrap.ftco-animated:nth-child(2) { animation-delay: .45s; }
+#technology-section .col-md-4:nth-child(3) .department-wrap.ftco-animated:nth-child(3) { animation-delay: .55s; }
+
+/* ─── Video container overlay ─────────────────────────────────────── */
+
+.img-dept {
+  position: relative;
+  overflow: hidden;
+}
+
+.img-dept::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(26,35,50,.25),
+    transparent
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ─── Hero background parallax pulse ─────────────────────────────── */
+
+.hero-overlay {
+  position: relative;
+}
+
+/* Animated breathing ring for hero brand badge */
+.hero-wrap .subheading {
+  animation: dvFadeInDown .8s .3s cubic-bezier(.4,0,.2,1) both, dvBorderGlow 3s 1.5s ease-in-out infinite;
+}
+
+/* ─── Reduced motion ─────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+/* ─── Responsive adjustments ─────────────────────────────────────── */
+
+@media (max-width: 767.98px) {
+  #dv-scroll-top { bottom: 20px; right: 20px; width: 44px; height: 44px; }
+  .hero-wrap::after { display: none; }
+}
+
+/* ─── Safety fallback: ensure nothing stays permanently invisible ─── */
+/* If JS observer never fires (e.g. script error / timing issue),      */
+/* all reveal elements become visible after a short delay.             */
+
+@keyframes dvRevealFallback {
+  from { opacity: 0; }
+  to   { opacity: 1; transform: none; }
+}
+
+.dv-reveal:not(.dv-in-view),
+.dv-reveal-left:not(.dv-in-view),
+.dv-reveal-right:not(.dv-in-view),
+.dv-reveal-scale:not(.dv-in-view) {
+  animation: dvRevealFallback .6s 1.8s both;
+}
