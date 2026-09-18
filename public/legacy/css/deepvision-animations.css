@@ -340,7 +340,22 @@
 /* Pulse ring on icons when hovered */
 .department-wrap .text .icon {
   position: relative;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin: 0 auto;
+  line-height: 1;
+}
+
+.department-wrap .text .icon span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  line-height: 1;
 }
 
 .department-wrap:hover .text .icon::before {
