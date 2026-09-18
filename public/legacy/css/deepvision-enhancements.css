@@ -167,66 +167,7 @@ a:hover { color: var(--dv-primary-dark); text-decoration: none; }
 
 
 /* ─── Hero Section ──────────────────────────────────────────────── */
-.hero-wrap {
-  position: relative;
-  overflow: hidden;
-  min-height: 100vh !important;
-  display: flex;
-  align-items: center;
-}
-
-.hero-wrap .slider-text {
-  height: auto !important;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-}
-
-.hero-wrap > div:first-child {
-  min-height: 100vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  background: linear-gradient(
-    135deg,
-    rgba(26,35,50,.82) 0%,
-    rgba(65,155,189,.35) 100%
-  ) !important;
-}
-
-/* Hero subheading badge */
-.hero-wrap .subheading {
-  display: inline-block;
-  background: rgba(65,155,189,.2);
-  border: 1px solid rgba(65,155,189,.45);
-  color: var(--dv-primary-light) !important;
-  padding: 6px 18px;
-  border-radius: 50px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  margin-bottom: 24px;
-  backdrop-filter: blur(6px);
-}
-
-/* Hero title */
-.hero-wrap h1 {
-  font-size: clamp(2.2rem, 5vw, 3.8rem) !important;
-  font-weight: 800 !important;
-  line-height: 1.1 !important;
-  color: #fff !important;
-  margin-bottom: 24px;
-  text-shadow: 0 2px 20px rgba(0,0,0,.3);
-}
-
-/* Hero paragraph */
-.hero-wrap .col-md-8 p {
-  font-size: 1.15rem;
-  color: rgba(255,255,255,.82) !important;
-  max-width: 580px;
-  line-height: 1.8;
-}
+/* Homepage hero layout is consolidated in deepvision-2026.css. */
 
 /* ─── Section Base ──────────────────────────────────────────────── */
 .ftco-section {
@@ -252,6 +193,19 @@ a:hover { color: var(--dv-primary-dark); text-decoration: none; }
 }
 
 /* ─── About Section ─────────────────────────────────────────────── */
+
+/* Partners image: render logos as black on black background */
+.partners-black {
+  display: block;
+  background-color: #000;
+  /* ensure transparent parts show black behind */
+  padding: 6px 12px;
+  filter: brightness(0) saturate(100%);
+  -webkit-filter: brightness(0) saturate(100%);
+  max-width: 100%;
+  height: auto;
+}
+
 #about-section {
   background: var(--dv-gray-100);
 }
@@ -732,7 +686,6 @@ html::-webkit-scrollbar-thumb:hover { background: var(--dv-primary-light); }
     border-top: 1px solid rgba(255,255,255,.2);
   }
 
-  .hero-wrap h1 { font-size: clamp(1.8rem, 6vw, 2.8rem) !important; }
   .department-wrap:hover { transform: none; }
   .ftco-section { padding: 60px 0; }
   .ftco-intro, .ftco-facts { padding: 60px 0 !important; }
@@ -934,4 +887,3 @@ html::-webkit-scrollbar-thumb:hover { background: var(--dv-primary-light); }
   .dv-nav-pdf-item { margin-left: 0; margin-top: 6px; }
   .dv-nav-pdf-link { display: inline-flex !important; }
 }
-
