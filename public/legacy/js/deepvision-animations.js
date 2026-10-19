@@ -166,9 +166,10 @@
     ];
     var currentWord = 0;
 
-    // Split h1 into prefix + typed part
-    var prefix = 'Hyperspectral imaging + AI for ';
-    h1.innerHTML = prefix + '<span id="dv-typed"></span><span class="dv-typed-cursor"></span>';
+    // Keep the title rhythm stable while preserving the rotating final line.
+    h1.innerHTML = '<span class="hero-title-line">Hyperspectral</span>' +
+      '<span class="hero-title-line">imaging + AI for</span>' +
+      '<span class="hero-title-dynamic"><span id="dv-typed"></span><span class="dv-typed-cursor"></span></span>';
     var typedEl = document.getElementById('dv-typed');
 
     function typeWord(word, cb) {
@@ -392,4 +393,3 @@
     init();
   }
 })();
-

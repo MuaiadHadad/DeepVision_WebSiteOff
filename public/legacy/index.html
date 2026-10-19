@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="/images/deep-vision-logo.png" />
     <link rel="stylesheet" href="/legacy/css/icomoon.css"/>
     <link rel="stylesheet" href="/legacy/css/animate.css"/>
@@ -20,14 +20,12 @@
     <link rel="stylesheet" href="/legacy/css/style.css"/>
     <link rel="stylesheet" href="/legacy/css/deepvision-enhancements.css"/>
     <link rel="stylesheet" href="/legacy/css/deepvision-animations.css"/>
-    <link rel="stylesheet" href="/legacy/css/deepvision-2026.css"/>
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="1000">
-    <a class="skip-link" href="#main-content">Skip to main content</a>
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar" aria-label="Primary navigation">
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target home-navbar" id="ftco-navbar">
 	    <div class="container">
             <a class="navbar-brand" href="/">
-                <img src="/images/deep-vision-logo1.png" alt="Deep Vision Medical AI" style="height:100px; width:auto; vertical-align:middle; margin-right:8px;"/>
+                <img class="home-navbar-logo" src="/images/deep-vision-logo.png" alt="Deep Vision Medical AI"/>
 
             </a>
 	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,56 +45,31 @@
 	    </div>
 	  </nav>
 
-	<main id="main-content">
-	  <section class="hero-wrap" id="home-section" aria-labelledby="hero-title">
+	  <section class="hero-wrap home-hero" id="home-section" data-section="home" style="background-image: url('/legacy/images/bg_3.jpg');">
           <div class="hero-shell">
-              <div class="hero-main">
-                  <div class="hero-copy">
-                      <span class="subheading">BioVision™ by DeepVision</span>
-                      <h1 id="hero-title">Hyperspectral<br><span>imaging + AI</span> for<br>faster, smarter<br>wound care</h1>
-                      <p>Detect bacterial load, map tissue oxygenation and hydration, and pinpoint areas to debride — in one portable device designed for clinics, wards, and home care.</p>
-                      <div class="hero-actions" aria-label="Primary actions">
-                          <a href="#technology-section" class="btn btn-primary">Explore the technology <span aria-hidden="true">→</span></a>
-                          <a href="/biovision" class="btn btn-outline-light">View the BioVision project</a>
-                      </div>
-                      <div class="hero-benefits" aria-label="BioVision benefits">
-                          <div class="hero-benefit"><span class="icon-shield" aria-hidden="true"></span><span>Non-invasive</span></div>
-                          <div class="hero-benefit"><span class="icon-user-md" aria-hidden="true"></span><span>For clinical &amp;<br>home use</span></div>
-                          <div class="hero-benefit"><span class="icon-bar-chart" aria-hidden="true"></span><span>AI-powered<br>analysis</span></div>
-                          <div class="hero-benefit"><span class="icon-leaf" aria-hidden="true"></span><span>Portable &amp;<br>user-friendly</span></div>
-                      </div>
-                  </div>
-
-                  <div class="hero-visual" aria-label="BioVision device presentation">
-                      <img src="/images/biovision-device.png" width="1614" height="975" alt="BioVision hyperspectral medical imaging device" decoding="async" fetchpriority="high" />
-                  </div>
-              </div>
-
-              <div class="hero-info-panel" aria-label="BioVision impact">
-                  <div class="hero-info-item">
-                      <span class="icon-flask" aria-hidden="true"></span>
-                      <div><h2>From research to real-world impact</h2><p>Advancing wound care through science and innovation.</p></div>
-                  </div>
-                  <div class="hero-info-item">
-                      <span class="icon-heartbeat" aria-hidden="true"></span>
-                      <div><h2>Supporting better clinical decisions</h2><p>More information. More confidence. Better outcomes.</p></div>
-                  </div>
-                  <div class="hero-info-item">
-                      <span class="icon-users" aria-hidden="true"></span>
-                      <div><h2>Across care settings</h2><p>Hospitals, clinics, community nursing, and home care.</p></div>
-                  </div>
+      <div class="container" >
+        <div class="row hero-layout align-items-center">
+          <div class="col-lg-6 ftco-animate hero-content">
+              <div class="hero-copy">
+                  <span style="color: #ffffff" class="subheading">BioVision™ by DeepVision</span>
+                  <h1 style="color: white" class="mb-4"><span class="hero-title-line">Hyperspectral</span><span class="hero-title-line">imaging + AI for</span><span class="hero-title-line">faster, smarter wound care</span></h1>
+                  <p style="color: white" class="mb-4">Detect bacterial load, map tissue oxygenation and hydration, and pinpoint areas to debride — in one portable device designed for clinics, wards, and home care.</p>
               </div>
           </div>
-      </section>
+        </div>
+      </div>
+          </div>
+    </section>
 
 		<section class="ftco-counter img ftco-section ftco-no-pt ftco-no-pb" id="about-section">
     	<div class="container">
-    		<div class="row d-flex">
-    			<div class="col-md-6 col-lg-5 d-flex">
-				<div class="img d-flex align-self-stretch align-items-center" role="img" aria-label="BioVision portable medical imaging device" style="background-image:url('/legacy/images/about-optimized.jpg');">
-    				</div>
-    			</div>
-    			<div class="col-md-6 col-lg-7 pl-lg-5 py-md-5">
+		<div class="row d-flex align-items-center about-layout">
+			<div class="col-md-6 col-lg-6 d-flex">
+				<figure class="about-device-frame">
+					<img src="/legacy/images/about-transparent.png" width="1536" height="1024" alt="BioVision medical imaging device" loading="lazy" decoding="async" />
+				</figure>
+			</div>
+			<div class="col-md-6 col-lg-6 pl-lg-5 py-md-5">
     				<div class="py-md-5">
 	    				<div class="row justify-content-start pb-3">
 			          <div class="col-md-12 heading-section ftco-animate p-4 p-lg-5">
@@ -138,9 +111,6 @@
                               muted
                               loop
                               playsinline
-                              preload="metadata"
-                              aria-label="BioVision medical imaging device demonstration"
-                              poster="/legacy/images/bg_3.jpg"
                               style="width:100%;height:100%;object-fit:cover;display:block;"
                       >
                           <source src="/legacy/images/dept-1.mp4" type="video/mp4" />
@@ -155,21 +125,21 @@
                           <div class="department-wrap p-4 ftco-animate">
                               <div class="text p-2 text-center">
                                   <div class="icon"><span class="icon-bug" aria-hidden="true"></span></div>
-                                  <h3>Bacterial fluorescence</h3>
+                                  <h3><a href="#">Bacterial fluorescence</a></h3>
                                   <p>Visualize suspected bacterial load in real time to support timely intervention.</p>
                               </div>
                           </div>
                           <div class="department-wrap p-4 ftco-animate">
                               <div class="text p-2 text-center">
                                   <div class="icon"><span class="icon-area-chart" aria-hidden="true"></span></div>
-                                  <h3>Tissue oxygenation (StO₂)</h3>
+                                  <h3><a href="#">Tissue oxygenation (StO₂)</a></h3>
                                   <p>Map superficial oxygenation to distinguish perfusion issues from infection trends.</p>
                               </div>
                           </div>
                           <div class="department-wrap p-4 ftco-animate">
                               <div class="text p-2 text-center">
                                   <div class="icon"><span class="icon-tint" aria-hidden="true"></span></div>
-                                  <h3>Hydration mapping</h3>
+                                  <h3><a href="#">Hydration mapping</a></h3>
                                   <p>Assess local water content (H₂O) to inform dressing strategy and edema management.</p>
                               </div>
                           </div>
@@ -179,21 +149,21 @@
                           <div class="department-wrap p-4 ftco-animate">
                               <div class="text p-2 text-center">
                                   <div class="icon"><span class="icon-heartbeat" aria-hidden="true"></span></div>
-                                  <h3>Oxy / deoxyhemoglobin</h3>
+                                  <h3><a href="#">Oxy / deoxyhemoglobin</a></h3>
                                   <p>See relative oxy/deoxy Hb distribution to monitor tissue status around the wound bed.</p>
                               </div>
                           </div>
                           <div class="department-wrap p-4 ftco-animate">
                               <div class="text p-2 text-center">
                                   <div class="icon"><span class="icon-microchip" aria-hidden="true"></span></div>
-                                  <h3>AI decision support</h3>
+                                  <h3><a href="#">AI decision support</a></h3>
                                   <p>Highlight areas likely requiring debridement, based on annotated clinical datasets.</p>
                               </div>
                           </div>
                           <div class="department-wrap p-4 ftco-animate">
                               <div class="text p-2 text-center">
                                   <div class="icon"><span class="icon-cloud-upload" aria-hidden="true"></span></div>
-                                  <h3>Secure cloud</h3>
+                                  <h3><a href="#">Secure cloud</a></h3>
                                   <p>Optional cloud workflows for audit trails, longitudinal tracking, and team collaboration.</p>
                               </div>
                           </div>
@@ -202,21 +172,21 @@
                           <div class="department-wrap p-4 ftco-animate">
                               <div class="text p-2 text-center">
                                   <div class="icon"><span class="icon-mobile" aria-hidden="true"></span></div>
-                                  <h3>Portable & ergonomic</h3>
+                                  <h3><a href="#">Portable & ergonomic</a></h3>
                                   <p>Bedside-friendly design for clinics, wards, community nursing and home visits.</p>
                               </div>
                           </div>
                           <div class="department-wrap p-4 ftco-animate">
                               <div class="text p-2 text-center">
                                   <div class="icon"><span class="icon-cubes" aria-hidden="true"></span></div>
-                                  <h3>3D wound topography</h3>
+                                  <h3><a href="#">3D wound topography</a></h3>
                                   <p>Depth-aware imaging (RGB‑D) to support documentation and healing assessment.</p>
                               </div>
                           </div>
                           <div class="department-wrap p-4 ftco-animate">
                               <div class="text p-2 text-center">
                                   <div class="icon"><span class="icon-users" aria-hidden="true"></span></div>
-                                  <h3>Skin‑tone robust</h3>
+                                  <h3><a href="#">Skin‑tone robust</a></h3>
                                   <p>Spectral approach designed to deliver consistent results across diverse skin tones.</p>
                               </div>
                           </div>
@@ -301,8 +271,8 @@
                               <div class="icon d-flex align-items-center justify-content-center">
                                   <span style="color: #419bbd" class="icon-phone2"></span>
                               </div>
-                                  <h3 style="color: white" class="mb-4">Phone</h3>
-                                  <p><a style="color: white" href="tel:+351938929505">+351 938 929 505</a></p>
+                              <h3 style="color: white" class="mb-4">Phone</h3>
+                              <p><a style="color: white" href="tel:+351963311983">+351 963 311 983</a></p>
                           </div>
                       </div>
                       <div class="col-md-6 col-lg-4 d-flex ftco-animate">
@@ -319,8 +289,6 @@
           </div>
       </div>
   </section>
-  </main>
-
   <!-- FOOTER -->
   <footer class="ftco-footer ftco-section img">
 <!--      <div class="overlay" ></div>-->
@@ -329,11 +297,11 @@
               <div class="col-md">
                   <div class="ftco-footer-widget mb-4">
                       <div style="display:flex; align-items:center; gap:12px;">
-                          <img src="/images/deep-vision-logo1.png" alt="DeepVision logo" width="92" height="92" loading="lazy" decoding="async" />
+                          <img src="/images/deep-vision-logo.png" alt="DeepVision logo" style="height:92px; width:auto;" />
                       </div>
                       <p>cofinanciado por:</p>
                       <a href="/legacy/biovision.html" aria-label="Open BioVision page" style="display:inline-block;">
-                          <img src="/images/bottom.png" class="partners-black" alt="Project co-financing partners" loading="lazy" decoding="async" />
+                          <img src="/images/bottom.png" alt="DeepVision footer graphic" style="max-width:520px; width:100%; height:auto; display:block;" />
                       </a>
                   </div>
               </div>
@@ -353,7 +321,7 @@
                       <div class="block-23 mb-3">
                           <ul>
                               <li><span style="color: white" class="icon icon-map-marker"></span><span style="color: white"  class="text">Miranda do Corvo, Portugal</span></li>
-                              <li><a style="color: white" href="tel:+351938929505"><span style="color: white" class="icon icon-phone"></span><span style="color: white" class="text">+351 938 929 505</span></a></li>
+                              <li><a style="color: white" href="tel:+351963311983"><span style="color: white" class="icon icon-phone"></span><span style="color: white" class="text">+351 963 311 983</span></a></li>
                               <li><a style="color: white" href="mailto:geral@dvportugal.com"><span style="color: white" class="icon icon-envelope pr-4"></span><span style="color: white" class="text">geral@dvportugal.com</span></a></li>
                           </ul>
                       </div>

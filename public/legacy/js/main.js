@@ -70,9 +70,20 @@
 	    event.preventDefault();
 
 	    var href = $.attr(this, 'href');
+	    var target = $(href);
+	    if (!target.length) return;
 
-	    $('html, body').animate({
-	        scrollTop: $($.attr(this, 'href')).offset().top - 70
+	    var cssOffset = parseFloat(
+	        getComputedStyle(document.documentElement).getPropertyValue('--dv-scroll-offset')
+	    );
+	    var headerOffset = cssOffset || $('#ftco-navbar').outerHeight() || 0;
+
+	    if ($('#ftco-nav').hasClass('show')) {
+	        $('#ftco-nav').collapse('hide');
+	    }
+
+	    $('html, body').stop().animate({
+	        scrollTop: target.offset().top - headerOffset
 	    }, 500, function() {
 	    	// window.location.hash = href;
 	    });
@@ -340,4 +351,3 @@
 
 
 })(jQuery);
-

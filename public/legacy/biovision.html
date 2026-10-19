@@ -102,6 +102,12 @@
         background: #fff;
         border-radius: 20px;
         padding: 24px;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
         box-shadow: 0 8px 32px rgba(65,155,189,0.18);
         transition: transform .3s cubic-bezier(.4,0,.2,1), box-shadow .3s;
       }
@@ -109,7 +115,20 @@
         transform: translateY(-4px);
         box-shadow: 0 20px 60px rgba(65,155,189,0.22);
       }
-      .brochure-card img { width: 100%; height: auto; border-radius: 12px; display: block; }
+      .brochure-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+        border-radius: 12px;
+        display: block;
+      }
+      @media (max-width: 767.98px) {
+        .brochure-card {
+          padding: 14px;
+          border-radius: 16px;
+        }
+      }
 
       /* ── Badge ── */
       .section-badge {
@@ -516,7 +535,7 @@
           </div>
         </div>
         <div class="row justify-content-center">
-          <div class="col-md-10">
+          <div class="col-12">
             <div class="brochure-card">
               <img src="/images/631a5d20-1.png" alt="BioVision Brochure" />
             </div>
@@ -556,7 +575,7 @@
               <div class="block-23 mb-3">
                 <ul>
                   <li><span style="color: white" class="icon icon-map-marker"></span><span style="color: white" class="text">Miranda do Corvo, Portugal</span></li>
-                  <li><a style="color: white" href="tel:+351938929505"><span style="color: white" class="icon icon-phone"></span><span style="color: white" class="text">+351 938 929 505</span></a></li>
+                  <li><a style="color: white" href="tel:+351963311983"><span style="color: white" class="icon icon-phone"></span><span style="color: white" class="text">+351 963 311 983</span></a></li>
                   <li><a style="color: white" href="mailto:geraldeepvision@gmail.com"><span style="color: white" class="icon icon-envelope pr-4"></span><span style="color: white" class="text">geraldeepvision@gmail.com</span></a></li>
                 </ul>
               </div>
@@ -588,5 +607,3 @@
   <script src="/legacy/js/deepvision-animations.js"></script>
 </body>
 </html>
-
-

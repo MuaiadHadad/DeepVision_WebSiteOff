@@ -157,6 +157,25 @@ a:hover { color: var(--dv-primary-dark); text-decoration: none; }
   filter: brightness(1.1) drop-shadow(0 4px 12px rgba(255,255,255,.3));
 }
 
+/* Larger Home logo, scoped so the Project page keeps its current header size. */
+#ftco-navbar .navbar-brand img.home-navbar-logo {
+  width: auto;
+  height: 112px !important;
+  max-width: min(30vw, 175px);
+  object-fit: contain;
+  margin: -8px 12px -8px 0;
+}
+
+#ftco-navbar.home-navbar {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+#ftco-navbar.home-navbar .container {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 /* Mobile toggler */
 #ftco-navbar .navbar-toggler {
   border: 1px solid rgba(255,255,255,.5) !important;
@@ -167,7 +186,113 @@ a:hover { color: var(--dv-primary-dark); text-decoration: none; }
 
 
 /* ─── Hero Section ──────────────────────────────────────────────── */
-/* Homepage hero layout is consolidated in deepvision-2026.css. */
+.home-hero {
+  position: relative;
+  overflow: hidden;
+  height: auto !important;
+  min-height: auto !important;
+  background-color: #07131d;
+  padding: clamp(48px, 5vw, 72px) 0;
+}
+
+.home-hero .hero-shell {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.home-hero .hero-layout {
+  min-height: clamp(540px, 62vh, 680px);
+  row-gap: 42px;
+}
+
+.home-hero .hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 500px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.home-hero .hero-copy {
+  max-width: 480px;
+  padding: clamp(28px, 2.5vw, 34px);
+  background: linear-gradient(145deg, rgba(13,39,55,.92), rgba(7,24,35,.96));
+  border: 1px solid rgba(90,179,212,.24);
+  border-radius: 24px;
+  box-shadow: 0 24px 70px rgba(0,0,0,.28);
+}
+
+/* Hero subheading badge */
+.home-hero .subheading {
+  display: inline-block;
+  background: rgba(65,155,189,.2);
+  border: 1px solid rgba(65,155,189,.45);
+  color: var(--dv-primary-light) !important;
+  padding: 6px 18px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  backdrop-filter: blur(6px);
+}
+
+/* Hero title */
+.home-hero h1 {
+  font-size: clamp(2.15rem, 2.8vw, 2.75rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.08 !important;
+  color: #fff !important;
+  margin-bottom: 30px !important;
+  max-width: 440px;
+  letter-spacing: -.035em;
+  text-shadow: 0 2px 20px rgba(0,0,0,.3);
+}
+
+.home-hero .hero-title-line,
+.home-hero .hero-title-dynamic {
+  display: block;
+}
+
+/* Hero paragraph */
+.home-hero .hero-content p {
+  font-size: 1rem;
+  color: rgba(255,255,255,.82) !important;
+  max-width: 430px;
+  line-height: 1.7;
+  margin-bottom: 0 !important;
+  animation: dvFadeInUp .9s .85s cubic-bezier(.4,0,.2,1) both;
+}
+
+.home-hero .hero-visual {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 20px;
+}
+
+.home-hero .hero-device-frame {
+  width: 100%;
+  max-width: 760px;
+  padding: clamp(10px, 1.4vw, 18px);
+  background: linear-gradient(145deg, rgba(255,255,255,.10), rgba(65,155,189,.06));
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 26px;
+  box-shadow: 0 30px 90px rgba(0,0,0,.42);
+}
+
+.home-hero .hero-device-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 560px;
+  object-fit: contain;
+  border-radius: 17px;
+}
 
 /* ─── Section Base ──────────────────────────────────────────────── */
 .ftco-section {
@@ -193,19 +318,6 @@ a:hover { color: var(--dv-primary-dark); text-decoration: none; }
 }
 
 /* ─── About Section ─────────────────────────────────────────────── */
-
-/* Partners image: render logos as black on black background */
-.partners-black {
-  display: block;
-  background-color: #000;
-  /* ensure transparent parts show black behind */
-  padding: 6px 12px;
-  filter: brightness(0) saturate(100%);
-  -webkit-filter: brightness(0) saturate(100%);
-  max-width: 100%;
-  height: auto;
-}
-
 #about-section {
   background: var(--dv-gray-100);
 }
@@ -679,6 +791,12 @@ html::-webkit-scrollbar-thumb:hover { background: var(--dv-primary-light); }
 @media (max-width: 991.98px) {
   #ftco-navbar { padding: 6px 0 !important; }
 
+  #ftco-navbar .navbar-brand img.home-navbar-logo {
+    height: 110px !important;
+    max-width: 170px;
+    margin: -7px 8px -7px 0;
+  }
+
   #ftco-navbar .navbar-collapse {
     background: #3a8dac !important;
     border-radius: 0 0 var(--dv-radius) var(--dv-radius);
@@ -686,12 +804,99 @@ html::-webkit-scrollbar-thumb:hover { background: var(--dv-primary-light); }
     border-top: 1px solid rgba(255,255,255,.2);
   }
 
+  .home-hero {
+    padding: 56px 0 72px;
+  }
+
+  .home-hero .hero-layout {
+    min-height: 0;
+    row-gap: 44px;
+  }
+
+  .home-hero .hero-content {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0 15px;
+  }
+
+  .home-hero .hero-copy {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .home-hero h1 {
+    max-width: 600px;
+    font-size: clamp(2.25rem, 6vw, 3rem) !important;
+  }
+
+  .home-hero .hero-visual {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0 15px;
+  }
+
+  .home-hero .hero-device-frame {
+    max-width: 760px;
+  }
   .department-wrap:hover { transform: none; }
   .ftco-section { padding: 60px 0; }
   .ftco-intro, .ftco-facts { padding: 60px 0 !important; }
 }
 
 @media (max-width: 767.98px) {
+  #ftco-navbar .navbar-brand img.home-navbar-logo {
+    height: 96px !important;
+    max-width: 150px;
+    margin: -6px 4px -6px 0;
+  }
+
+  .home-hero {
+    padding: 40px 0 52px;
+  }
+
+  .home-hero .hero-content {
+    padding: 0 15px;
+  }
+
+  .home-hero .hero-copy {
+    max-width: 100%;
+    padding: 24px 20px;
+    border-radius: 18px;
+  }
+
+  .home-hero .subheading {
+    margin-bottom: 20px;
+  }
+
+  .home-hero h1 {
+    font-size: clamp(1.9rem, 8vw, 2.35rem) !important;
+    line-height: 1.06 !important;
+    margin-bottom: 22px !important;
+  }
+
+  .home-hero .hero-content p {
+    max-width: 100%;
+    font-size: 1rem;
+    line-height: 1.62;
+  }
+
+  .home-hero .hero-layout {
+    row-gap: 30px;
+  }
+
+  .home-hero .hero-visual {
+    padding: 0 15px;
+  }
+
+  .home-hero .hero-device-frame {
+    padding: 7px;
+    border-radius: 18px;
+  }
+
+  .home-hero .hero-device-frame img {
+    border-radius: 12px;
+  }
+
   .ftco-footer { padding: 60px 0 30px !important; }
   .staff .img-wrap { height: 200px !important; }
   .ftco-counter .block-18 { margin-bottom: 16px; }
@@ -886,4 +1091,682 @@ html::-webkit-scrollbar-thumb:hover { background: var(--dv-primary-light); }
 @media (max-width: 991.98px) {
   .dv-nav-pdf-item { margin-left: 0; margin-top: 6px; }
   .dv-nav-pdf-link { display: inline-flex !important; }
+}
+
+/* Unified DeepVision dark-blue visual system */
+:root {
+  --dv-navy-950: #061923;
+  --dv-navy-900: #082532;
+  --dv-navy-850: #0b3041;
+  --dv-navy-800: #0e3b4f;
+  --dv-surface: rgba(15, 57, 75, .88);
+  --dv-border-blue: rgba(105, 198, 229, .22);
+  --dv-text-blue: #d8e9f0;
+  --dv-muted-blue: #abc5d1;
+}
+
+body {
+  color: var(--dv-text-blue);
+  background: var(--dv-navy-900);
+}
+
+/* The BioVision photograph is the Hero canvas, rather than a separate card. */
+.home-hero {
+  min-height: clamp(620px, calc(100vh - 104px), 790px) !important;
+  padding: 0;
+  background-color: var(--dv-navy-950);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  isolation: isolate;
+}
+
+.home-hero .hero-shell {
+  min-height: inherit;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(90deg,
+    rgba(5, 24, 34, .97) 0%,
+    rgba(7, 31, 43, .91) 30%,
+    rgba(8, 37, 50, .66) 48%,
+    rgba(8, 37, 50, .18) 72%,
+    rgba(8, 37, 50, .08) 100%);
+}
+
+.home-hero .hero-layout {
+  min-height: inherit;
+  width: 100%;
+}
+
+.home-hero .hero-content {
+  max-width: 610px;
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+
+.home-hero .hero-copy {
+  max-width: 540px;
+  padding: clamp(28px, 3vw, 42px);
+  background: linear-gradient(145deg, rgba(8, 37, 50, .88), rgba(6, 25, 35, .78));
+  border: 1px solid var(--dv-border-blue);
+  border-radius: 24px;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, .34);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.home-hero h1 {
+  max-width: 500px;
+  font-size: clamp(2.35rem, 3.45vw, 3.45rem) !important;
+  line-height: 1.07 !important;
+}
+
+.home-hero .hero-content p {
+  max-width: 470px;
+  color: rgba(229, 243, 248, .9) !important;
+}
+
+/* Home sections share one restrained family of blue surfaces. */
+#about-section,
+#contact-section {
+  background: var(--dv-navy-850) !important;
+}
+
+#technology-section {
+  background: var(--dv-navy-900) !important;
+}
+
+#about-section .heading-section h2,
+#contact-section .heading-section h2,
+#technology-section h3 a,
+.department-wrap h3 a {
+  color: #f4fbfd !important;
+}
+
+#about-section p,
+#about-section li,
+#contact-section .heading-section p,
+.department-wrap p {
+  color: var(--dv-muted-blue) !important;
+}
+
+.ftco-intro,
+.ftco-facts {
+  background: linear-gradient(135deg, #0d3a4d 0%, #15566e 55%, #0e3b4f 100%) !important;
+  border-top: 1px solid var(--dv-border-blue);
+  border-bottom: 1px solid var(--dv-border-blue);
+}
+
+.ftco-intro h2,
+.ftco-intro p,
+.ftco-facts h2,
+.ftco-facts .subheading,
+.ftco-facts .number,
+.ftco-facts .text span {
+  color: #fff !important;
+}
+
+.department-wrap {
+  background: var(--dv-surface) !important;
+  border-color: var(--dv-border-blue) !important;
+  box-shadow: inset 0 0 0 1px rgba(105, 198, 229, .08);
+}
+
+.department-wrap:hover {
+  background: rgba(20, 75, 96, .96) !important;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, .2), inset 0 0 0 1px rgba(105, 198, 229, .18);
+}
+
+#contact-section .contact-info .box,
+#contact-section .contact-info .bg-warning {
+  background: linear-gradient(145deg, rgba(15, 57, 75, .98), rgba(9, 42, 56, .98)) !important;
+  border: 1px solid var(--dv-border-blue);
+  box-shadow: 0 18px 46px rgba(0, 0, 0, .2);
+}
+
+.ftco-footer {
+  background: var(--dv-navy-950) !important;
+  border-top: 1px solid var(--dv-border-blue);
+}
+
+/* Project page uses the same palette without changing its content or behavior. */
+.biovision-hero,
+.stats-bar {
+  background: linear-gradient(135deg, #0a2d3d 0%, #10475d 52%, #17627c 100%) !important;
+}
+
+.info-section,
+.biovision-content {
+  background: var(--dv-navy-850) !important;
+  border-top: 1px solid rgba(105, 198, 229, .1);
+}
+
+.info-section:nth-of-type(even),
+.biovision-content {
+  background: var(--dv-navy-900) !important;
+}
+
+.info-section .section-title,
+.info-card h5,
+.institution-item span {
+  color: #f4fbfd !important;
+}
+
+.info-section p,
+.info-card p,
+.info-card a {
+  color: var(--dv-muted-blue) !important;
+}
+
+.info-card,
+.institution-item,
+.person-tag,
+.brochure-card {
+  background: var(--dv-surface) !important;
+  color: var(--dv-text-blue) !important;
+  border-color: var(--dv-border-blue) !important;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, .18) !important;
+}
+
+.info-card:hover,
+.institution-item:hover,
+.brochure-card:hover {
+  box-shadow: 0 20px 48px rgba(0, 0, 0, .28) !important;
+}
+
+.tag-list li {
+  background: rgba(65, 155, 189, .14) !important;
+  color: #8ed8ef !important;
+  border-color: rgba(105, 198, 229, .28) !important;
+}
+
+@media (max-width: 991.98px) {
+  .home-hero {
+    min-height: 900px !important;
+    background-position: center bottom !important;
+    background-size: 100% auto;
+  }
+
+  .home-hero .hero-shell {
+    align-items: flex-start;
+    background: linear-gradient(180deg,
+      rgba(6, 25, 35, 1) 0%,
+      rgba(7, 31, 43, .97) 50%,
+      rgba(7, 31, 43, .68) 72%,
+      rgba(7, 31, 43, .16) 100%);
+  }
+
+  .home-hero .hero-layout {
+    align-items: flex-start !important;
+  }
+
+  .home-hero .hero-content {
+    max-width: 690px;
+    flex: 0 0 100%;
+    padding-top: 62px;
+    padding-bottom: 320px;
+  }
+
+  .home-hero .hero-copy {
+    max-width: 620px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  #ftco-navbar .navbar-brand img.home-navbar-logo {
+    height: 90px !important;
+    max-width: 190px;
+    margin: -5px 8px -5px 0;
+  }
+
+  .home-hero {
+    min-height: 820px !important;
+    background-size: 100% auto;
+    background-position: center bottom !important;
+  }
+
+  .home-hero .hero-shell {
+    background: linear-gradient(180deg,
+      rgba(6, 25, 35, 1) 0%,
+      rgba(7, 31, 43, .98) 57%,
+      rgba(7, 31, 43, .74) 76%,
+      rgba(7, 31, 43, .18) 100%);
+  }
+
+  .home-hero .hero-content {
+    padding: 36px 15px 250px;
+  }
+
+  .home-hero .hero-copy {
+    max-width: 100%;
+    padding: 24px 20px;
+    border-radius: 18px;
+  }
+
+  .home-hero h1 {
+    font-size: clamp(2rem, 10vw, 2.65rem) !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .home-hero {
+    min-height: 760px !important;
+  }
+
+  .home-hero .hero-content {
+    padding-bottom: 205px;
+  }
+
+  .home-hero .subheading {
+    font-size: 10px;
+    letter-spacing: .09em;
+    padding: 5px 13px;
+  }
+
+  .home-hero h1 {
+    font-size: clamp(1.85rem, 9.2vw, 2.25rem) !important;
+  }
+}
+
+/* Full-screen section navigation */
+:root {
+  --dv-header-height: 96px;
+  --dv-scroll-offset: 114px;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--dv-scroll-offset);
+  scroll-snap-type: y proximity;
+}
+
+body {
+  padding-top: 0 !important;
+}
+
+section,
+.biovision-hero,
+.stats-bar,
+.info-section,
+.biovision-content {
+  scroll-margin-top: var(--dv-scroll-offset);
+}
+
+.home-hero {
+  min-height: 100vh;
+  min-height: 100svh;
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+}
+
+.home-hero {
+  min-height: 100vh !important;
+  min-height: 100svh !important;
+  background-size: cover !important;
+  background-position: center center !important;
+}
+
+.home-hero > .hero-shell > .container {
+  width: 100%;
+  max-width: none !important;
+  padding-left: 3.5vw !important;
+  padding-right: 3.5vw !important;
+}
+
+.home-hero .hero-content {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.home-hero .hero-copy {
+  width: min(540px, 100%);
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  text-align: left;
+}
+
+#about-section {
+  display: flex;
+  align-items: center;
+  padding-top: clamp(90px, 9vh, 120px) !important;
+  padding-bottom: clamp(64px, 7vh, 90px) !important;
+}
+
+#about-section > .container,
+.home-hero .hero-layout {
+  width: 100%;
+}
+
+#about-section .about-layout {
+  width: 100%;
+}
+
+#about-section .py-md-5 {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+#about-section .heading-section {
+  padding: clamp(24px, 2.2vw, 34px) !important;
+}
+
+#about-section .about-device-frame {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+#about-section .about-device-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 0;
+}
+
+.biovision-hero {
+  padding-top: calc(var(--dv-scroll-offset) + 70px) !important;
+}
+
+/* Approximately 18% smaller than the previous header treatment. */
+#ftco-navbar .navbar-brand img {
+  width: auto !important;
+  height: 60px !important;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, .2)) !important;
+}
+
+#ftco-navbar .navbar-brand img:hover {
+  filter: brightness(1.08) drop-shadow(0 4px 12px rgba(255, 255, 255, .3)) !important;
+}
+
+#ftco-navbar .navbar-brand img.home-navbar-logo {
+  width: auto !important;
+  height: 92px !important;
+  max-width: min(26vw, 150px);
+  margin: -6px 10px -6px 0;
+}
+
+#ftco-navbar .container {
+  min-height: var(--dv-header-height);
+  align-items: center;
+}
+
+@media (max-width: 991.98px) {
+  :root {
+    --dv-header-height: 86px;
+    --dv-scroll-offset: 110px;
+  }
+
+  @media (max-width: 767.98px) {
+    .home-hero {
+      background-image: url('/legacy/images/biovision-thermal-device.png') !important;
+      background-position: center top !important;
+      background-size: 100% auto !important;
+      background-repeat: no-repeat;
+      filter: none !important;
+    }
+
+    .home-hero .hero-shell {
+      align-items: flex-end;
+      background: transparent !important;
+    }
+
+    .home-hero .hero-layout {
+      align-items: flex-end !important;
+    }
+
+    .home-hero .hero-content {
+      padding: 0 0 24px !important;
+    }
+
+    .home-hero .hero-copy {
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+    }
+  }
+
+  #ftco-navbar .container {
+    min-height: var(--dv-header-height);
+  }
+
+  #ftco-navbar .navbar-brand img.home-navbar-logo {
+    height: 86px !important;
+    max-width: 142px;
+    margin: -5px 8px -5px 0;
+  }
+
+  .home-hero {
+    min-height: 100vh !important;
+    min-height: 100svh !important;
+    background-size: cover !important;
+    background-position: 58% center !important;
+  }
+
+  .home-hero .hero-shell,
+  .home-hero .hero-layout {
+    min-height: inherit;
+  }
+
+  .home-hero .hero-content {
+    padding-top: calc(var(--dv-header-height) + 46px);
+    padding-bottom: 64px;
+  }
+
+  #about-section .about-layout > [class*="col-"] {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  #about-section .about-device-frame {
+    max-width: 680px;
+    margin: 0 auto 30px;
+  }
+
+  #about-section .heading-section {
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 767.98px) {
+  :root {
+    --dv-header-height: 76px;
+    --dv-scroll-offset: 100px;
+  }
+
+  #ftco-navbar .navbar-brand img {
+    height: 52px !important;
+  }
+
+  #ftco-navbar .navbar-brand img.home-navbar-logo {
+    height: 74px !important;
+    max-width: 124px;
+    margin: -4px 6px -4px 0;
+  }
+
+  .home-hero {
+    background-position: 58% center !important;
+  }
+
+  .home-hero .hero-content {
+    padding: calc(var(--dv-header-height) + 34px) 0 48px;
+  }
+
+  .home-hero {
+    min-height: 100vh;
+    min-height: 100svh;
+    height: auto;
+  }
+
+  #about-section {
+    padding-top: calc(var(--dv-scroll-offset) + 28px) !important;
+    padding-bottom: 64px !important;
+  }
+
+  #about-section .about-device-frame {
+    margin-bottom: 24px;
+  }
+
+  #about-section .about-device-frame img {
+    border-radius: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+    scroll-snap-type: none;
+  }
+}
+
+/* Medium-blue theme requested for the complete DeepVision experience. */
+:root {
+  --dv-primary: rgb(58, 141, 172);
+  --dv-primary-dark: rgb(45, 112, 138);
+  --dv-primary-light: rgb(110, 190, 218);
+  --dv-navy-950: rgb(31, 82, 101);
+  --dv-navy-900: rgb(42, 108, 133);
+  --dv-navy-850: rgb(51, 126, 154);
+  --dv-navy-800: rgb(58, 141, 172);
+  --dv-surface: rgba(30, 84, 104, .82);
+  --dv-border-blue: rgba(210, 241, 250, .28);
+  --dv-text-blue: #f2fbfe;
+  --dv-muted-blue: #d5eaf2;
+}
+
+body,
+#about-section,
+#contact-section {
+  background: rgb(58, 141, 172) !important;
+}
+
+#about-section h2 span {
+  color: #e5f7fc !important;
+}
+
+#technology-section,
+.info-section:nth-of-type(even),
+.biovision-content {
+  background: rgb(45, 112, 138) !important;
+}
+
+.ftco-intro,
+.ftco-facts,
+.biovision-hero,
+.stats-bar {
+  background: linear-gradient(135deg, rgb(45, 112, 138), rgb(58, 141, 172) 58%, rgb(74, 155, 185)) !important;
+}
+
+.info-section {
+  background: rgb(51, 126, 154) !important;
+}
+
+.department-wrap,
+#contact-section .contact-info .box,
+#contact-section .contact-info .bg-warning,
+.info-card,
+.institution-item,
+.person-tag,
+.brochure-card {
+  background: rgba(30, 84, 104, .82) !important;
+  border-color: rgba(210, 241, 250, .28) !important;
+}
+
+.ftco-footer {
+  background: rgb(31, 82, 101) !important;
+}
+
+.ftco-footer img[src*="deep-vision-logo"] {
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, .2));
+}
+
+/* The About visual owns one half of the available desktop canvas. */
+@media (min-width: 992px) {
+  #about-section > .container {
+    width: 100%;
+    max-width: none;
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
+
+  #about-section .about-layout > .col-lg-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  #about-section .about-device-frame {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .home-hero {
+    min-height: 100svh !important;
+    height: auto !important;
+    background-size: 100% auto !important;
+    background-position: center top !important;
+    background-repeat: no-repeat !important;
+    padding: 0 !important;
+  }
+
+  .home-hero .hero-shell {
+    min-height: 100svh !important;
+    display: flex;
+    align-items: flex-end !important;
+    padding-top: var(--dv-header-height);
+  }
+
+  .home-hero .hero-layout {
+    min-height: calc(100svh - var(--dv-header-height)) !important;
+    display: flex;
+    align-items: flex-end !important;
+  }
+
+  .home-hero .hero-content {
+    padding: 0 14px 18px !important;
+  }
+
+  .home-hero .hero-copy {
+    width: 100%;
+    max-width: none !important;
+    padding: 22px 18px 20px !important;
+    background: rgba(6, 25, 35, .92) !important;
+    border: 1px solid rgba(150, 220, 240, .35);
+    border-radius: 18px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, .28);
+  }
+
+  .home-hero h1 {
+    max-width: none;
+    font-size: clamp(1.8rem, 8.5vw, 2.25rem) !important;
+    line-height: 1.04 !important;
+    margin-bottom: 18px !important;
+  }
+
+  .home-hero .hero-content p {
+    font-size: .98rem;
+    line-height: 1.55;
+  }
+
+  #ftco-navbar .navbar-collapse {
+    margin: 4px 10px 0;
+    padding: 10px 14px !important;
+    background: rgba(38, 117, 145, .97) !important;
+    border: 1px solid rgba(210, 241, 250, .28);
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 12px 26px rgba(0, 0, 0, .2);
+  }
+
+  #ftco-navbar .navbar-nav .nav-link {
+    padding: 11px 14px !important;
+  }
 }

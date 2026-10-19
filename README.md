@@ -121,7 +121,7 @@ Miranda do Corvo Industrial Park
 Portugal  
 
 📧 Email: Geral@deepvision.pt  
-📞 Phone: +351 938 929 505
+📞 Phone: +351 963 311 983
 
 ## 📄 License
 
